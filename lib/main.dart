@@ -1,24 +1,29 @@
 
 import 'package:flutter/material.dart';
-import 'package:locally/src/pages/home_page.dart';
-import 'package:locally/src/pages/login_page.dart';
+import 'package:locally/src/blocs/provider.dart';
+import 'package:locally/src/pages/first_page.dart';
+import 'package:locally/src/pages/sign_in_page.dart';
+import 'package:locally/src/pages/sign_up_email1.dart';
 
-
- 
 void main() => runApp(MyApp());
  
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Material App',
-      initialRoute: "login",
-      routes: {
+
+    return Provider(
+      child:MaterialApp(
+       debugShowCheckedModeBanner: false,
+       title: 'Material App',
+       initialRoute: "login",
+       routes: {
         //"splash": (BuildContext context) => SplashPage(),
-        "login" : (BuildContext context) => LoginPage(),
-        "home"  : (BuildContext context) => HomePage(),
-      },
+         "login"         : (BuildContext context) => LoginPage(),
+         "sign_in"       : (BuildContext context) => SignInPage(),
+         "sign_up_mail1" : (BuildContext context) => SignUpEmail(),
+       },
+      ), 
     );
   }
 }
