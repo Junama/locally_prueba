@@ -1,0 +1,1086 @@
+Index: lib/src/pages/login_page.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lib/src/pages/login_page.dart	(revision 564c0ad68458f1ad515dba1c7a40d83ac6e0e0bf)
++++ lib/src/pages/login_page.dart	(date 1591591355000)
+@@ -1,202 +1,179 @@
+ import 'package:flutter/material.dart';
+ import 'package:flutter/rendering.dart';
+-
++import 'text_styles.dart';
+ 
+ class LoginPage extends StatelessWidget {
+   @override
+   Widget build(BuildContext context) {
+     return Scaffold(
+-      body: SingleChildScrollView(
+-              child: Stack(
+-          children: <Widget>[          
+-             _loginMail(),
+-             _loginFacebook(),
+-             _loginGoogle(),
+-             _loginText(),
+-          ],
+-         ),
+-      )
+-      );
+-    }
+-  }
+-          
++        body: SingleChildScrollView(
++      child: Column(
++        mainAxisSize: MainAxisSize.max,
++        children: <Widget>[
++          _loginMail(),
++          _loginFacebook(),
++          _loginGoogle(),
++          _loginText(),
++        ],
++      ),
++    ));
++  }
++}
++
+ Widget _loginMail() {
+-
+-  return Stack(
+-   children: <Widget>[
++  return Column(
++    children: <Widget>[
+       Container(
+         width: 267.0,
+         height: 50.0,
+-        margin: EdgeInsets.only(left:42.0, right: 66.0, top: 114.0, bottom: 1.0),
++        margin:
++            EdgeInsets.only(left: 42.0, right: 66.0, top: 114.0, bottom: 1.0),
+         child: Center(
+-          child:Text("Crear una cuenta.", style: TextStyle(fontSize: 18.0)),
+-       ),
++          child: Text("Crear una cuenta.", style: normalTextStyle),
++        ),
+       ),
+-  
+-     Container(
+-         width : 336,
+-         height: 66,
+-         margin: EdgeInsets.only(left:19.0, right: 18.0, top: 165.0, bottom: 21.0),
+-         decoration: BoxDecoration(
+-             borderRadius: BorderRadius.all(
+-             Radius.circular(6) 
+-             ),
+-             color: const Color(0xff6969ff)
+-            ),
+-             child:Stack(
+-                children:<Widget>[
+-                Center(
+-                child: Text("Sign up with E-mail",style: const TextStyle(color:  const Color(0xffffffff),
+-                   fontWeight: FontWeight.w500,fontFamily: "SFProText",fontStyle:  FontStyle.normal, fontSize: 21.0) 
+-                ),
+-               ),
+-                PositionedDirectional(
+-                top: 25,
+-                start: 22,
+-                child: Container(
+-                   width: 24,
+-                   height: 18,
+-                   decoration: BoxDecoration(
+-                    //color: const Color(0xffffffff),
+-                    image: DecorationImage(
++      Container(
++        width: 336,
++        height: 66,
++        margin:
++            EdgeInsets.only(left: 19.0, right: 18.0, top: 165.0, bottom: 21.0),
++        decoration: BoxDecoration(
++            borderRadius: BorderRadius.all(Radius.circular(6)),
++            color: const Color(0xff6969ff)),
++        child: Row(
++          children: <Widget>[
++            Center(
++              child: Text(
++                "Sign up with E-mail",
++                style: emailTextStyle,
++              ),
++            ),
++            PositionedDirectional(
++              top: 25,
++              start: 22,
++              child: Container(
++                width: 24,
++                height: 18,
++                decoration: BoxDecoration(
++                  //color: const Color(0xffffffff),
++                  image: DecorationImage(
+                       image: ExactAssetImage("assets/drawable/mail.png"),
+-                      fit: BoxFit.cover
+-                      ),
+-                  ),
+-                 ),
+-               ) 
+-              ]
+-            ),
+-     ),
+-   ], 
++                      fit: BoxFit.cover),
++                ),
++              ),
++            ),
++          ],
++        ),
++      ),
++    ],
+   );
+ }
+ 
+ Widget _loginFacebook() {
+-
+-  return Stack(
+-   children: <Widget>[
+-     Container(
+-         width : 336,
+-         height: 67,
+-         margin: EdgeInsets.only(left:19.0, right: 18.0, top: 252.0, bottom: 21.0),
+-         decoration: BoxDecoration(
+-             borderRadius: BorderRadius.all(
+-             Radius.circular(6) 
+-             ),
+-             color: const Color(0xff1e599b)
+-            ),
+-             child:Stack(
+-                children:<Widget>[
+-                Center(
+-                child:Text("Sign up with Facebook", style: const TextStyle(color: const Color(0xffffffff),fontWeight: FontWeight.w600,
+-                      fontFamily: "SFProText", fontStyle:  FontStyle.normal, fontSize: 18.0)
+-                      )
+-               ),
+-                PositionedDirectional(
+-                top: 19,
+-                start: 25,
+-                bottom: 19,
+-                child: Container(
+-                   width: 14,
+-                   height: 29,
+-                   decoration: BoxDecoration(
+-                    image: DecorationImage(
+-                      image: ExactAssetImage("assets/drawable/facebook.png"),
+-                      fit: BoxFit.cover
+-                      ),
+-                  ),
+-                 ),
+-               ) 
+-              ]
+-            ),
+-     ),
+-   ], 
++  return Container(
++    width: 336,
++    height: 67,
++    margin: EdgeInsets.only(left: 19.0, right: 18.0, top: 252.0, bottom: 21.0),
++    decoration: BoxDecoration(
++        borderRadius: BorderRadius.all(Radius.circular(6)),
++        color: const Color(0xff1e599b)),
++    child: Row(
++      children: <Widget>[
++        Center(
++          child: Text(
++            "Sign up with Facbook",
++            style: facebookTextStyle,
++          ),
++        ),
++        PositionedDirectional(
++          top: 19,
++          start: 25,
++          bottom: 19,
++          child: Container(
++            width: 14,
++            height: 29,
++            decoration: BoxDecoration(
++              image: DecorationImage(
++                  image: ExactAssetImage("assets/drawable/facebook.png"),
++                  fit: BoxFit.cover),
++            ),
++          ),
++        ),
++      ],
++    ),
+   );
+ }
+ 
+-Widget _loginGoogle(){
+- return Stack(
+-   children: <Widget>[
+-     Container(
+-         width : 336,
+-         height: 67,
+-         margin: EdgeInsets.only(left:19.0, right: 18.0, top: 340.0, bottom: 21.0),
+-         decoration: BoxDecoration(
+-             borderRadius: BorderRadius.all(
+-             Radius.circular(6) 
+-             ),
+-             color: const Color(0xffd0caca)
+-            ),
+-             child:Stack(
+-                children:<Widget>[
+-                Center(
+-                child:Text("Sign in with Google",style: const TextStyle(color: const Color(0xffffffff), fontWeight: FontWeight.w600,
+-                           fontFamily: "SFProText", fontStyle:  FontStyle.normal, fontSize: 18.0)
+-                      )
+-                ),
+-                PositionedDirectional(
+-                top: 21,
+-                start: 25,
+-                bottom: 21,
+-                child: Container(
+-                   width: 24,
+-                   height: 25,
+-                   decoration: BoxDecoration(
+-                    image: DecorationImage(
+-                      image: ExactAssetImage("assets/drawable/google_icon.png"),
+-                      fit: BoxFit.cover
+-                      ),
+-                  ),
+-                 ),
+-               ) 
+-              ]
+-            ),
+-     ),
+-   ], 
++Widget _loginGoogle() {
++  return Container(
++    width: 336,
++    height: 67,
++    margin: EdgeInsets.only(left: 19.0, right: 18.0, top: 340.0, bottom: 21.0),
++    decoration: BoxDecoration(
++        borderRadius: BorderRadius.all(Radius.circular(6)),
++        color: const Color(0xffd0caca)),
++    child: Row(
++      children: <Widget>[
++        Center(
++          child: Text(
++            "Sign in with Google",
++            style: googleTextStyle,
++          ),
++        ),
++      ],
++    ),
+   );
+-} 
++}
+ 
+-Widget _loginText(){
+-  return Stack(
++Widget _loginText() {
++  return Column(
+     children: <Widget>[
+-       Container(
+-             width: 350,
+-             margin: EdgeInsets.only(left:39, right: 39, top: 445.0, bottom: 1.0),
+-             child: Text.rich(
+-               TextSpan(
+-                 text: "al crear una cuenta aceptas nuestros ",
+-                 style: const TextStyle(color:  const Color(0xff566556),
+-                        fontWeight: FontWeight.w500, fontFamily: "SFProText", fontStyle:  FontStyle.normal, fontSize: 18.0),
+-               children:<TextSpan>[
+-                 TextSpan(
+-                  text:"terminos y condiciones.",
+-                  style: const TextStyle(color:  const Color(0xff566556),
+-                         fontWeight: FontWeight.w500, fontFamily: "SFProText", fontStyle:  FontStyle.normal, fontSize: 18.0,
+-                         decoration: TextDecoration.underline),
+-                 )
+-                ] 
+-               ),
+-                textAlign: TextAlign.center
+-            )
+-           ),
+-       Container(
+-             width: 267,
+-             height: 50,
+-             margin: EdgeInsets.only(left:54.0, right: 54.0, top: 570.0, bottom: 1.0),
+-             child: 
+-             Text("Already have an account?", style: const TextStyle(color:  const Color(0xff566556),fontWeight: FontWeight.w500,
+-                  fontFamily: "SFProText",fontStyle: FontStyle.normal,fontSize: 18.0),
+-                  textAlign: TextAlign.center)
+-       ),
+-       Container(
+-             width: 71,
+-             height: 50,
+-             margin: EdgeInsets.only(left:145.0, right: 145.0, top: 617.0, bottom: 1.0),
+-             child: Text("sign in.", style: const TextStyle(color:  const Color(0xff6969ff),fontWeight: FontWeight.w600,
+-                         fontFamily: "SFProText", fontStyle:  FontStyle.normal, fontSize: 21.0,  decoration: TextDecoration.underline),
+-                         textAlign: TextAlign.center)
+-       ),    
++      Container(
++          width: 350,
++          margin: EdgeInsets.only(left: 39, right: 39, top: 445.0, bottom: 1.0),
++          child: Text.rich(
++              TextSpan(
++                  text: "al crear una cuenta aceptas nuestros ",
++                  children: <TextSpan>[
++                    TextSpan(
++                      text: "terminos y condiciones.",
++                      style: const TextStyle(
++                          color: const Color(0xff566556),
++                          fontWeight: FontWeight.w500,
++                          fontFamily: "SFProText",
++                          fontStyle: FontStyle.normal,
++                          fontSize: 18.0,
++                          decoration: TextDecoration.underline),
++                    )
++                  ]),
++              textAlign: TextAlign.center)),
++      Container(
++          width: 267,
++          height: 50,
++          margin:
++              EdgeInsets.only(left: 54.0, right: 54.0, top: 570.0, bottom: 1.0),
++          child: Text("Already have an account?",
++              style: const TextStyle(
++                  color: const Color(0xff566556),
++                  fontWeight: FontWeight.w500,
++                  fontFamily: "SFProText",
++                  fontStyle: FontStyle.normal,
++                  fontSize: 18.0),
++              textAlign: TextAlign.center)),
++      Container(
++          width: 71,
++          height: 50,
++          margin: EdgeInsets.only(
++              left: 145.0, right: 145.0, top: 617.0, bottom: 1.0),
++          child: Text("sign in.",
++              style: const TextStyle(
++                  color: const Color(0xff6969ff),
++                  fontWeight: FontWeight.w600,
++                  fontFamily: "SFProText",
++                  fontStyle: FontStyle.normal,
++                  fontSize: 21.0,
++                  decoration: TextDecoration.underline),
++              textAlign: TextAlign.center)),
+     ],
+   );
+-}
+\ No newline at end of file
++}
+Index: lib/src/pages/first_page.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lib/src/pages/first_page.dart	(revision 564c0ad68458f1ad515dba1c7a40d83ac6e0e0bf)
++++ lib/src/pages/first_page.dart	(date 1591581799000)
+@@ -6,223 +6,229 @@
+ class LoginPage extends StatelessWidget {
+   @override
+   Widget build(BuildContext context) {
+-
+     return Scaffold(
+-      body: SingleChildScrollView(
+-              child: Stack(
+-          children: <Widget>[          
+-             _loginMail(context),
+-             _loginFacebook(),
+-             _loginGoogle(),
+-             _loginText(context),
+-          ],
+-         ),
+-      )
+-      );
+-    }
+-  }
+-          
++        body: SingleChildScrollView(
++      child: Stack(
++        children: <Widget>[
++          _loginMail(context),
++          _loginFacebook(),
++          _loginGoogle(),
++          _loginText(context),
++        ],
++      ),
++    ));
++  }
++}
++
+ Widget _loginMail(BuildContext context) {
+- 
+   return Stack(
+-   children: <Widget>[
++    children: <Widget>[
+       Container(
+         width: 267,
+         height: 50.0,
+-        margin: EdgeInsets.only(left:42.0, right: 66.0, top: 114.0, bottom: 1.0),
++        margin:
++            EdgeInsets.only(left: 42.0, right: 66.0, top: 114.0, bottom: 1.0),
+         child: Center(
+-          child:Text("Crear una cuenta.", style: TextStyle(fontSize: 18.0)),
+-       ),
++          child: Text("Crear una cuenta.", style: TextStyle(fontSize: 18.0)),
++        ),
+       ),
+-  
+-     Container(
+-         width : 336,
+-         height: 66,
+-         margin: EdgeInsets.only(left:19.0, right: 18.0, top: 165.0, bottom: 21.0),
+-         decoration: BoxDecoration(
+-             borderRadius: BorderRadius.all(
+-             Radius.circular(6) 
+-             ),
+-             color: const Color(0xff6969ff)
+-            ),
+-             child:Stack(
+-                children:<Widget>[
+-                Center(
+-                child: FlatButton(
+-                  child: Text("Sign up with E-mail",style: const TextStyle(color:  const Color(0xffffffff),
+-                              fontWeight: FontWeight.w500,fontFamily: "SFProText",fontStyle:  FontStyle.normal, fontSize: 21.0) 
+-                  ),
+-                  onPressed: (){
+-                    Navigator.push(context,
+-                      MaterialPageRoute(builder: (context) => SignUpEmail()));
+-                  },
+-                ),
+-               ),
+-                PositionedDirectional(
+-                top: 25,
+-                start: 22,
+-                child: Container(
+-                   width: 24,
+-                   height: 19,
+-                   decoration: BoxDecoration(
+-                    image: DecorationImage(
+-                      image: ExactAssetImage("assets/drawable/mail.png"),
+-                      fit: BoxFit.cover
+-                      ),
+-                  ),
+-                 ),
+-               ) 
+-              ]
+-            ),
+-     ),
+-   ], 
++      Container(
++        width: 336,
++        height: 66,
++        margin:
++            EdgeInsets.only(left: 19.0, right: 18.0, top: 165.0, bottom: 21.0),
++        decoration: BoxDecoration(
++            borderRadius: BorderRadius.all(Radius.circular(6)),
++            color: const Color(0xff6969ff)),
++        child: Stack(children: <Widget>[
++          Center(
++            child: FlatButton(
++              child: Text("Sign up with E-mail",
++                  style: const TextStyle(
++                      color: const Color(0xffffffff),
++                      fontWeight: FontWeight.w500,
++                      fontFamily: "SFProText",
++                      fontStyle: FontStyle.normal,
++                      fontSize: 21.0)),
++              onPressed: () {
++                Navigator.push(context,
++                    MaterialPageRoute(builder: (context) => SignUpEmail()));
++              },
++            ),
++          ),
++          PositionedDirectional(
++            top: 25,
++            start: 22,
++            child: Container(
++              width: 24,
++              height: 19,
++              decoration: BoxDecoration(
++                image: DecorationImage(
++                    image: ExactAssetImage("assets/drawable/mail.png"),
++                    fit: BoxFit.cover),
++              ),
++            ),
++          )
++        ]),
++      ),
++    ],
+   );
+ }
+ 
+ Widget _loginFacebook() {
+-
+   return Stack(
+-   children: <Widget>[
+-     Container(
+-         width : 336,
+-         height: 67,
+-         margin: EdgeInsets.only(left:19.0, right: 18.0, top: 252.0, bottom: 21.0),
+-         decoration: BoxDecoration(
+-             borderRadius: BorderRadius.all(
+-             Radius.circular(6) 
+-             ),
+-             color: const Color(0xff1e599b)
+-            ),
+-             child:Stack(
+-                children:<Widget>[
+-                Center(
+-                child:FlatButton(
+-                        child: Text("Sign up with Facebook", style: const TextStyle(color: const Color(0xffffffff),fontWeight: FontWeight.w600,
+-                                    fontFamily: "SFProText", fontStyle:  FontStyle.normal, fontSize: 18.0)
+-                                   ),
+-                        onPressed: () {},
+-                           /*Navigator.push(context,
++    children: <Widget>[
++      Container(
++        width: 336,
++        height: 67,
++        margin:
++            EdgeInsets.only(left: 19.0, right: 18.0, top: 252.0, bottom: 21.0),
++        decoration: BoxDecoration(
++            borderRadius: BorderRadius.all(Radius.circular(6)),
++            color: const Color(0xff1e599b)),
++        child: Stack(children: <Widget>[
++          Center(
++              child: FlatButton(
++            child: Text("Sign up with Facebook",
++                style: const TextStyle(
++                    color: const Color(0xffffffff),
++                    fontWeight: FontWeight.w600,
++                    fontFamily: "SFProText",
++                    fontStyle: FontStyle.normal,
++                    fontSize: 18.0)),
++            onPressed: () {},
++            /*Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => SignInPage()));
+-                        },*/ 
+-                 )
+-                ),
+-                PositionedDirectional(
+-                top: 19,
+-                start: 25,
+-                bottom: 19,
+-                child: Container(
+-                   width: 14,
+-                   height: 29,
+-                   decoration: BoxDecoration(
+-                    image: DecorationImage(
+-                      image: ExactAssetImage("assets/drawable/facebook.png"),
+-                      fit: BoxFit.cover
+-                      ),
+-                  ),
+-                 ),
+-               ) 
+-              ]
+-            ),
+-     ),
+-   ], 
++                        },*/
++          )),
++          PositionedDirectional(
++            top: 19,
++            start: 25,
++            bottom: 19,
++            child: Container(
++              width: 14,
++              height: 29,
++              decoration: BoxDecoration(
++                image: DecorationImage(
++                    image: ExactAssetImage("assets/drawable/facebook.png"),
++                    fit: BoxFit.cover),
++              ),
++            ),
++          )
++        ]),
++      ),
++    ],
+   );
+ }
+ 
+-Widget _loginGoogle(){
+- return Stack(
+-   children: <Widget>[
+-     Container(
+-         width : 336,
+-         height: 67,
+-         margin: EdgeInsets.only(left:19.0, right: 18.0, top: 340.0, bottom: 21.0),
+-         decoration: BoxDecoration(
+-             borderRadius: BorderRadius.all(
+-             Radius.circular(6) 
+-             ),
+-             color: const Color(0xffd0caca)
+-            ),
+-             child:Stack(
+-                children:<Widget>[
+-                Center(
+-                child:FlatButton(
+-                        child: Text("Sign in with Google",style: const TextStyle(color: const Color(0xffffffff), fontWeight: FontWeight.w600,
+-                                    fontFamily: "SFProText", fontStyle:  FontStyle.normal, fontSize: 18.0)
+-                               ),
+-                        onPressed: () {},
+-                           /*Navigator.push(context,
++Widget _loginGoogle() {
++  return Stack(
++    children: <Widget>[
++      Container(
++        width: 336,
++        height: 67,
++        margin:
++            EdgeInsets.only(left: 19.0, right: 18.0, top: 340.0, bottom: 21.0),
++        decoration: BoxDecoration(
++            borderRadius: BorderRadius.all(Radius.circular(6)),
++            color: const Color(0xffd0caca)),
++        child: Stack(children: <Widget>[
++          Center(
++              child: FlatButton(
++            child: Text("Sign in with Google",
++                style: const TextStyle(
++                    color: const Color(0xffffffff),
++                    fontWeight: FontWeight.w600,
++                    fontFamily: "SFProText",
++                    fontStyle: FontStyle.normal,
++                    fontSize: 18.0)),
++            onPressed: () {},
++            /*Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => SignInPage()));
+                        },*/
+-                 )
+-                ),
+-                PositionedDirectional(
+-                top: 21,
+-                start: 25,
+-                bottom: 21,
+-                child: Container(
+-                   width: 24,
+-                   height: 25,
+-                   decoration: BoxDecoration(
+-                    image: DecorationImage(
+-                      image: ExactAssetImage("assets/drawable/google_icon.png"),
+-                      fit: BoxFit.cover
+-                      ),
+-                  ),
+-                 ),
+-               ) 
+-              ]
+-            ),
+-     ),
+-   ], 
++          )),
++          PositionedDirectional(
++            top: 21,
++            start: 25,
++            bottom: 21,
++            child: Container(
++              width: 24,
++              height: 25,
++              decoration: BoxDecoration(
++                image: DecorationImage(
++                    image: ExactAssetImage("assets/drawable/google_icon.png"),
++                    fit: BoxFit.cover),
++              ),
++            ),
++          )
++        ]),
++      ),
++    ],
+   );
+-} 
++}
+ 
+-Widget _loginText(BuildContext context){
++Widget _loginText(BuildContext context) {
+   return Stack(
+     children: <Widget>[
+-       Container(
+-             width: 350,
+-             margin: EdgeInsets.only(left:39, right: 39, top: 445.0, bottom: 1.0),
+-             child: Text.rich(
+-               TextSpan(
+-                 text: "al crear una cuenta aceptas nuestros ",
+-                 style: const TextStyle(color:  const Color(0xff566556),
+-                        fontWeight: FontWeight.w500, fontFamily: "SFProText", fontStyle:  FontStyle.normal, fontSize: 18.0),
+-               children:<TextSpan>[
+-                 TextSpan(
+-                  text:"terminos y condiciones.",
+-                  style: const TextStyle(color:  const Color(0xff566556),
+-                         fontWeight: FontWeight.w500, fontFamily: "SFProText", fontStyle:  FontStyle.normal, fontSize: 18.0,
+-                         decoration: TextDecoration.underline),
+-                 )
+-                ] 
+-               ),
+-                textAlign: TextAlign.center
+-            )
+-           ),
+-       Container(
+-             width: 267,
+-             height: 50,
+-             margin: EdgeInsets.only(left:54.0, right: 54.0, top: 570.0, bottom: 1.0),
+-             child: 
+-             Text("Already have an account?", style: const TextStyle(color:  const Color(0xff566556),fontWeight: FontWeight.w500,
+-                  fontFamily: "SFProText",fontStyle: FontStyle.normal,fontSize: 18.0),
+-                  textAlign: TextAlign.center)
+-       ),
+-       Container(
+-             width: 71,
+-             height: 50,
+-             margin: EdgeInsets.only(left:145.0, right: 145.0, top: 617.0, bottom: 1.0),
+-             child: FlatButton(
+-                 padding: EdgeInsets.only(left: 1, right: 1, top: 10, bottom: 1),
+-                 child: Text("sign in.", style: const TextStyle(color:  const Color(0xff6969ff),fontWeight: FontWeight.w600,
+-                        fontFamily: "SFProText", fontStyle:  FontStyle.normal, fontSize: 21.0,  decoration: TextDecoration.underline),
+-                        textAlign: TextAlign.center),
+-                 onPressed: () {
+-                           Navigator.push(context,
+-                           MaterialPageRoute(builder: (context) => SignInPage()));
+-                 },
+-            )
+-       ),    
++      Container(
++          width: 350,
++          margin: EdgeInsets.only(left: 39, right: 39, top: 445.0, bottom: 1.0),
++          child: Text.rich(
++              TextSpan(
++                  text: "al crear una cuenta aceptas nuestros ",
++                  style: const TextStyle(
++                      color: const Color(0xff566556),
++                      fontWeight: FontWeight.w500,
++                      fontFamily: "SFProText",
++                      fontStyle: FontStyle.normal,
++                      fontSize: 18.0),
++                  children: <TextSpan>[
++                    TextSpan(
++                      text: "terminos y condiciones.",
++                      style: const TextStyle(
++                          color: const Color(0xff566556),
++                          fontWeight: FontWeight.w500,
++                          fontFamily: "SFProText",
++                          fontStyle: FontStyle.normal,
++                          fontSize: 18.0,
++                          decoration: TextDecoration.underline),
++                    )
++                  ]),
++              textAlign: TextAlign.center)),
++      Container(
++          width: 267,
++          height: 50,
++          margin:
++              EdgeInsets.only(left: 54.0, right: 54.0, top: 570.0, bottom: 1.0),
++          child: Text("Already have an account?",
++              style: const TextStyle(
++                  color: const Color(0xff566556),
++                  fontWeight: FontWeight.w500,
++                  fontFamily: "SFProText",
++                  fontStyle: FontStyle.normal,
++                  fontSize: 18.0),
++              textAlign: TextAlign.center)),
++      Container(
++          width: 71,
++          height: 50,
++          margin: EdgeInsets.only(
++              left: 145.0, right: 145.0, top: 617.0, bottom: 1.0),
++          child: FlatButton(
++            padding: EdgeInsets.only(left: 1, right: 1, top: 10, bottom: 1),
++            child: Text("sign in.",
++                style: const TextStyle(
++                    color: const Color(0xff6969ff),
++                    fontWeight: FontWeight.w600,
++                    fontFamily: "SFProText",
++                    fontStyle: FontStyle.normal,
++                    fontSize: 21.0,
++                    decoration: TextDecoration.underline),
++                textAlign: TextAlign.center),
++            onPressed: () {
++              Navigator.push(context,
++                  MaterialPageRoute(builder: (context) => SignInPage()));
++            },
++          )),
+     ],
+   );
+-}
+\ No newline at end of file
++}
+Index: ios/Flutter/Debug.xcconfig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- ios/Flutter/Debug.xcconfig	(revision 564c0ad68458f1ad515dba1c7a40d83ac6e0e0bf)
++++ ios/Flutter/Debug.xcconfig	(date 1591572650000)
+@@ -1,1 +1,2 @@
++#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
+ #include "Generated.xcconfig"
+Index: ios/Flutter/Release.xcconfig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- ios/Flutter/Release.xcconfig	(revision 564c0ad68458f1ad515dba1c7a40d83ac6e0e0bf)
++++ ios/Flutter/Release.xcconfig	(date 1591572650000)
+@@ -1,1 +1,2 @@
++#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
+ #include "Generated.xcconfig"
+Index: lib/src/pages/Login_button_card.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lib/src/pages/Login_button_card.dart	(date 1591587364000)
++++ lib/src/pages/Login_button_card.dart	(date 1591587364000)
+@@ -0,0 +1,23 @@
++import 'package:flutter/material.dart';
++
++class LoginButtonCard extends StatelessWidget {
++  LoginButtonCard({
++    @required this.colour,
++    this.cardChild,
++    this.icon,
++  });
++  final Color colour;
++  final Widget cardChild;
++  final Icon icon;
++  @override
++  Widget build(BuildContext context) {
++    return Container(
++      child: cardChild,
++      margin: EdgeInsets.all(15.0),
++      decoration: BoxDecoration(
++        color: colour,
++        borderRadius: BorderRadius.circular(2),
++      ),
++    );
++  }
++}
+Index: ios/Runner.xcodeproj/project.pbxproj
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- ios/Runner.xcodeproj/project.pbxproj	(revision 564c0ad68458f1ad515dba1c7a40d83ac6e0e0bf)
++++ ios/Runner.xcodeproj/project.pbxproj	(date 1591590993000)
+@@ -17,6 +17,7 @@
+ 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
+ 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
+ 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
++		C6A817A655C6FE8D87CE961C /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72884FF6F2A52196C30F4679 /* Pods_Runner.framework */; };
+ /* End PBXBuildFile section */
+ 
+ /* Begin PBXCopyFilesBuildPhase section */
+@@ -37,11 +38,14 @@
+ /* Begin PBXFileReference section */
+ 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
+ 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
++		23AC9B1EDB6A10D8D6E586CF /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+ 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
+ 		3B80C3931E831B6300D905FE /* App.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = App.framework; path = Flutter/App.framework; sourceTree = "<group>"; };
++		72884FF6F2A52196C30F4679 /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+ 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
+ 		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+ 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
++		92211FA1F152DF5F32EEBC4B /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
+ 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
+ 		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
+ 		9740EEBA1CF902C7004384FC /* Flutter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flutter.framework; path = Flutter/Flutter.framework; sourceTree = "<group>"; };
+@@ -50,6 +54,7 @@
+ 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+ 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+ 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
++		BC85E79C307512848597C6F6 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
+ /* End PBXFileReference section */
+ 
+ /* Begin PBXFrameworksBuildPhase section */
+@@ -59,6 +64,7 @@
+ 			files = (
+ 				9705A1C61CF904A100538489 /* Flutter.framework in Frameworks */,
+ 				3B80C3941E831B6300D905FE /* App.framework in Frameworks */,
++				C6A817A655C6FE8D87CE961C /* Pods_Runner.framework in Frameworks */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
+@@ -84,6 +90,8 @@
+ 				9740EEB11CF90186004384FC /* Flutter */,
+ 				97C146F01CF9000F007C117D /* Runner */,
+ 				97C146EF1CF9000F007C117D /* Products */,
++				DB71BD100B42A37420D33EFB /* Pods */,
++				F2645FB749ADE11FD948C666 /* Frameworks */,
+ 			);
+ 			sourceTree = "<group>";
+ 		};
+@@ -117,6 +125,25 @@
+ 			);
+ 			name = "Supporting Files";
+ 			sourceTree = "<group>";
++		};
++		DB71BD100B42A37420D33EFB /* Pods */ = {
++			isa = PBXGroup;
++			children = (
++				BC85E79C307512848597C6F6 /* Pods-Runner.debug.xcconfig */,
++				23AC9B1EDB6A10D8D6E586CF /* Pods-Runner.release.xcconfig */,
++				92211FA1F152DF5F32EEBC4B /* Pods-Runner.profile.xcconfig */,
++			);
++			name = Pods;
++			path = Pods;
++			sourceTree = "<group>";
++		};
++		F2645FB749ADE11FD948C666 /* Frameworks */ = {
++			isa = PBXGroup;
++			children = (
++				72884FF6F2A52196C30F4679 /* Pods_Runner.framework */,
++			);
++			name = Frameworks;
++			sourceTree = "<group>";
+ 		};
+ /* End PBXGroup section */
+ 
+@@ -125,12 +152,14 @@
+ 			isa = PBXNativeTarget;
+ 			buildConfigurationList = 97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */;
+ 			buildPhases = (
++				6ADD958124348ACC55471ABA /* [CP] Check Pods Manifest.lock */,
+ 				9740EEB61CF901F6004384FC /* Run Script */,
+ 				97C146EA1CF9000F007C117D /* Sources */,
+ 				97C146EB1CF9000F007C117D /* Frameworks */,
+ 				97C146EC1CF9000F007C117D /* Resources */,
+ 				9705A1C41CF9048500538489 /* Embed Frameworks */,
+ 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
++				D2C5BCFCAB8B4AF1ED778ADE /* [CP] Embed Pods Frameworks */,
+ 			);
+ 			buildRules = (
+ 			);
+@@ -203,6 +232,28 @@
+ 			shellPath = /bin/sh;
+ 			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" thin";
+ 		};
++		6ADD958124348ACC55471ABA /* [CP] Check Pods Manifest.lock */ = {
++			isa = PBXShellScriptBuildPhase;
++			buildActionMask = 2147483647;
++			files = (
++			);
++			inputFileListPaths = (
++			);
++			inputPaths = (
++				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
++				"${PODS_ROOT}/Manifest.lock",
++			);
++			name = "[CP] Check Pods Manifest.lock";
++			outputFileListPaths = (
++			);
++			outputPaths = (
++				"$(DERIVED_FILE_DIR)/Pods-Runner-checkManifestLockResult.txt",
++			);
++			runOnlyForDeploymentPostprocessing = 0;
++			shellPath = /bin/sh;
++			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
++			showEnvVarsInLog = 0;
++		};
+ 		9740EEB61CF901F6004384FC /* Run Script */ = {
+ 			isa = PBXShellScriptBuildPhase;
+ 			buildActionMask = 2147483647;
+@@ -217,6 +268,21 @@
+ 			shellPath = /bin/sh;
+ 			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build";
+ 		};
++		D2C5BCFCAB8B4AF1ED778ADE /* [CP] Embed Pods Frameworks */ = {
++			isa = PBXShellScriptBuildPhase;
++			buildActionMask = 2147483647;
++			files = (
++			);
++			inputPaths = (
++			);
++			name = "[CP] Embed Pods Frameworks";
++			outputPaths = (
++			);
++			runOnlyForDeploymentPostprocessing = 0;
++			shellPath = /bin/sh;
++			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh\"\n";
++			showEnvVarsInLog = 0;
++		};
+ /* End PBXShellScriptBuildPhase section */
+ 
+ /* Begin PBXSourcesBuildPhase section */
+Index: ios/Runner.xcworkspace/contents.xcworkspacedata
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- ios/Runner.xcworkspace/contents.xcworkspacedata	(revision 564c0ad68458f1ad515dba1c7a40d83ac6e0e0bf)
++++ ios/Runner.xcworkspace/contents.xcworkspacedata	(date 1591572825000)
+@@ -4,4 +4,7 @@
+    <FileRef
+       location = "group:Runner.xcodeproj">
+    </FileRef>
++   <FileRef
++      location = "group:Pods/Pods.xcodeproj">
++   </FileRef>
+ </Workspace>
+Index: lib/src/pages/Login_button_content.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lib/src/pages/Login_button_content.dart	(date 1591587806000)
++++ lib/src/pages/Login_button_content.dart	(date 1591587806000)
+@@ -0,0 +1,30 @@
++import 'package:flutter/material.dart';
++import 'text_styles.dart';
++
++class ButtonContent extends StatelessWidget {
++  ButtonContent({
++    this.buttonIcon,
++    this.buttonText,
++  });
++  final IconData buttonIcon;
++  final String buttonText;
++  @override
++  Widget build(BuildContext context) {
++    return Column(
++      mainAxisAlignment: MainAxisAlignment.center,
++      children: <Widget>[
++        Icon(
++          buttonIcon,
++          size: 80,
++        ),
++        SizedBox(
++          height: 15,
++        ),
++        Text(
++          buttonText,
++          style: googleTextStyle,
++        )
++      ],
++    );
++  }
++}
+Index: lib/src/pages/text_styles.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lib/src/pages/text_styles.dart	(date 1591591472000)
++++ lib/src/pages/text_styles.dart	(date 1591591472000)
+@@ -0,0 +1,30 @@
++import 'package:flutter/material.dart';
++
++TextStyle googleTextStyle = TextStyle(
++  fontSize: 18,
++  color: Color(0xffffffff),
++  fontWeight: FontWeight.w500,
++  fontFamily: "SFProText",
++  fontStyle: FontStyle.normal,
++);
++TextStyle facebookTextStyle = TextStyle(
++  fontSize: 18,
++  color: Color(0xffffffff),
++  fontWeight: FontWeight.w500,
++  fontFamily: "SFProText",
++  fontStyle: FontStyle.normal,
++);
++TextStyle emailTextStyle = TextStyle(
++  fontSize: 18,
++  color: Color(0xffffffff),
++  fontWeight: FontWeight.w500,
++  fontFamily: "SFProText",
++  fontStyle: FontStyle.normal,
++);
++TextStyle normalTextStyle = TextStyle(
++  fontSize: 18,
++  color: Colors.black,
++  fontWeight: FontWeight.w500,
++  fontFamily: "SFProText",
++  fontStyle: FontStyle.normal,
++);
