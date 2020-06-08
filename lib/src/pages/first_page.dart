@@ -2,227 +2,150 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:locally/src/pages/sign_in_page.dart';
 import 'package:locally/src/pages/sign_up_email1.dart';
+import 'text_styles.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      body: SingleChildScrollView(
-              child: Stack(
-          children: <Widget>[          
-             _loginMail(context),
-             _loginFacebook(),
-             _loginGoogle(),
-             _loginText(context),
+        body: Column(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Column(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(top: 150.0, bottom: 10),
+              child: Center(
+                child: Text("Crear una cuenta.", style: normalTextStyle),
+              ),
+            ),
+            _loginMail(context),
+            _loginFacebook(),
+            _loginGoogle(),
+            _loginText(context),
           ],
-         ),
-      )
-      );
-    }
-  }
-          
-Widget _loginMail(BuildContext context) {
- 
-  return Stack(
-   children: <Widget>[
-      Container(
-        width: 267,
-        height: 50.0,
-        margin: EdgeInsets.only(left:42.0, right: 66.0, top: 114.0, bottom: 1.0),
-        child: Center(
-          child:Text("Crear una cuenta.", style: TextStyle(fontSize: 18.0)),
-       ),
-      ),
-  
-     Container(
-         width : 336,
-         height: 66,
-         margin: EdgeInsets.only(left:19.0, right: 18.0, top: 165.0, bottom: 21.0),
-         decoration: BoxDecoration(
-             borderRadius: BorderRadius.all(
-             Radius.circular(6) 
-             ),
-             color: const Color(0xff6969ff)
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Center(
+              child: Container(
+                margin: EdgeInsets.only(bottom: 45),
+                child: Text("Ya tienes una cuenta?", style: normalTextStyle),
+              ),
             ),
-             child:Stack(
-                children:<Widget>[
-                Center(
-                child: FlatButton(
-                  child: Text("Sign up with E-mail",style: const TextStyle(color:  const Color(0xffffffff),
-                              fontWeight: FontWeight.w500,fontFamily: "SFProText",fontStyle:  FontStyle.normal, fontSize: 21.0) 
-                  ),
-                  onPressed: (){
+            Container(
+                margin: EdgeInsets.only(bottom: 114),
+                child: GestureDetector(
+                  child: Text("sign in.", style: textButton),
+                  onTap: () {
                     Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SignUpEmail()));
+                        MaterialPageRoute(builder: (context) => SignInPage()));
                   },
-                ),
-               ),
-                PositionedDirectional(
-                top: 25,
-                start: 22,
-                child: Container(
-                   width: 24,
-                   height: 19,
-                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: ExactAssetImage("assets/drawable/mail.png"),
-                      fit: BoxFit.cover
-                      ),
-                  ),
-                 ),
-               ) 
-              ]
+                )),
+          ],
+        )
+      ],
+    ));
+  }
+}
+
+Widget _loginMail(BuildContext context) {
+  return Container(
+    width: 336,
+    height: 66,
+    margin: EdgeInsets.only(top: 20.0),
+    decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(6)),
+        color: const Color(0xff6969ff)),
+    child: FlatButton(
+      onPressed: () {},
+      child: Stack(
+        children: <Widget>[
+          Center(child: Text("Continuar con e-mail", style: emailTextStyle)),
+          Container(
+            alignment: Alignment.centerRight,
+            child: Icon(
+              FontAwesomeIcons.mailBulk,
+              color: Colors.white,
             ),
-     ),
-   ], 
+          ),
+        ],
+      ),
+    ),
   );
 }
 
 Widget _loginFacebook() {
-
-  return Stack(
-   children: <Widget>[
-     Container(
-         width : 336,
-         height: 67,
-         margin: EdgeInsets.only(left:19.0, right: 18.0, top: 252.0, bottom: 21.0),
-         decoration: BoxDecoration(
-             borderRadius: BorderRadius.all(
-             Radius.circular(6) 
-             ),
-             color: const Color(0xff1e599b)
+  return Container(
+    width: 336,
+    height: 66,
+    margin: EdgeInsets.only(top: 20.0, bottom: 0.0),
+    decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(6)),
+        color: const Color(0xff1e599b)),
+    child: FlatButton(
+      onPressed: () {},
+      child: Stack(
+        children: <Widget>[
+          Center(child: Text("Continuar con Facebook", style: emailTextStyle)),
+          Container(
+            alignment: Alignment.centerRight,
+            child: Icon(
+              FontAwesomeIcons.facebookF,
+              color: Colors.white,
             ),
-             child:Stack(
-                children:<Widget>[
-                Center(
-                child:FlatButton(
-                        child: Text("Sign up with Facebook", style: const TextStyle(color: const Color(0xffffffff),fontWeight: FontWeight.w600,
-                                    fontFamily: "SFProText", fontStyle:  FontStyle.normal, fontSize: 18.0)
-                                   ),
-                        onPressed: () {},
-                           /*Navigator.push(context,
-                           MaterialPageRoute(builder: (context) => SignInPage()));
-                        },*/ 
-                 )
-                ),
-                PositionedDirectional(
-                top: 19,
-                start: 25,
-                bottom: 19,
-                child: Container(
-                   width: 14,
-                   height: 29,
-                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: ExactAssetImage("assets/drawable/facebook.png"),
-                      fit: BoxFit.cover
-                      ),
-                  ),
-                 ),
-               ) 
-              ]
-            ),
-     ),
-   ], 
+          ),
+        ],
+      ),
+    ),
   );
 }
 
-Widget _loginGoogle(){
- return Stack(
-   children: <Widget>[
-     Container(
-         width : 336,
-         height: 67,
-         margin: EdgeInsets.only(left:19.0, right: 18.0, top: 340.0, bottom: 21.0),
-         decoration: BoxDecoration(
-             borderRadius: BorderRadius.all(
-             Radius.circular(6) 
-             ),
-             color: const Color(0xffd0caca)
+Widget _loginGoogle() {
+  return Container(
+    width: 336,
+    height: 66,
+    margin: EdgeInsets.only(top: 20.0, bottom: 0.0),
+    decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(6)),
+        color: const Color(0xffd0caca)),
+    child: FlatButton(
+      onPressed: () {},
+      child: Stack(
+        children: <Widget>[
+          Center(child: Text("Continuar con Google", style: emailTextStyle)),
+          Container(
+            alignment: Alignment.centerRight,
+            child: Icon(
+              FontAwesomeIcons.google,
+              color: Colors.white,
             ),
-             child:Stack(
-                children:<Widget>[
-                Center(
-                child:FlatButton(
-                        child: Text("Sign in with Google",style: const TextStyle(color: const Color(0xffffffff), fontWeight: FontWeight.w600,
-                                    fontFamily: "SFProText", fontStyle:  FontStyle.normal, fontSize: 18.0)
-                               ),
-                        onPressed: () {},
-                           /*Navigator.push(context,
-                           MaterialPageRoute(builder: (context) => SignInPage()));
-                       },*/
-                 )
-                ),
-                PositionedDirectional(
-                top: 21,
-                start: 25,
-                bottom: 21,
-                child: Container(
-                   width: 24,
-                   height: 25,
-                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: ExactAssetImage("assets/drawable/google_icon.png"),
-                      fit: BoxFit.cover
-                      ),
-                  ),
-                 ),
-               ) 
-              ]
-            ),
-     ),
-   ], 
+          ),
+        ],
+      ),
+    ),
   );
-} 
+}
 
-Widget _loginText(BuildContext context){
+Widget _loginText(BuildContext context) {
   return Stack(
     children: <Widget>[
-       Container(
-             width: 350,
-             margin: EdgeInsets.only(left:39, right: 39, top: 445.0, bottom: 1.0),
-             child: Text.rich(
-               TextSpan(
-                 text: "al crear una cuenta aceptas nuestros ",
-                 style: const TextStyle(color:  const Color(0xff566556),
-                        fontWeight: FontWeight.w500, fontFamily: "SFProText", fontStyle:  FontStyle.normal, fontSize: 18.0),
-               children:<TextSpan>[
-                 TextSpan(
-                  text:"terminos y condiciones.",
-                  style: const TextStyle(color:  const Color(0xff566556),
-                         fontWeight: FontWeight.w500, fontFamily: "SFProText", fontStyle:  FontStyle.normal, fontSize: 18.0,
-                         decoration: TextDecoration.underline),
-                 )
-                ] 
-               ),
-                textAlign: TextAlign.center
-            )
-           ),
-       Container(
-             width: 267,
-             height: 50,
-             margin: EdgeInsets.only(left:54.0, right: 54.0, top: 570.0, bottom: 1.0),
-             child: 
-             Text("Already have an account?", style: const TextStyle(color:  const Color(0xff566556),fontWeight: FontWeight.w500,
-                  fontFamily: "SFProText",fontStyle: FontStyle.normal,fontSize: 18.0),
-                  textAlign: TextAlign.center)
-       ),
-       Container(
-             width: 71,
-             height: 50,
-             margin: EdgeInsets.only(left:145.0, right: 145.0, top: 617.0, bottom: 1.0),
-             child: FlatButton(
-                 padding: EdgeInsets.only(left: 1, right: 1, top: 10, bottom: 1),
-                 child: Text("sign in.", style: const TextStyle(color:  const Color(0xff6969ff),fontWeight: FontWeight.w600,
-                        fontFamily: "SFProText", fontStyle:  FontStyle.normal, fontSize: 21.0,  decoration: TextDecoration.underline),
-                        textAlign: TextAlign.center),
-                 onPressed: () {
-                           Navigator.push(context,
-                           MaterialPageRoute(builder: (context) => SignInPage()));
-                 },
-            )
-       ),    
+      Container(
+          margin: EdgeInsets.only(
+            top: 25.0,
+          ),
+          child: Text.rich(
+              TextSpan(
+                  text: "al crear una cuenta aceptas nuestros ",
+                  style: normalTextStyle,
+                  children: <TextSpan>[
+                    TextSpan(
+                        text: "terminos y condiciones.", style: textButtonGrey)
+                  ]),
+              textAlign: TextAlign.center)),
     ],
   );
 }
