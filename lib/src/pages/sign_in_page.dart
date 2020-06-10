@@ -1,39 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:locally/src/blocs/provider.dart';
+import 'first_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:locally/src/strings/text_styles.dart';
-
+import 'text_styles.dart';
 
 class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
- 
     final bloc = Provider.of(context);
 
     return Scaffold(
-       body: Center(
-         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-           Column(
+        body: Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Column(
             children: <Widget>[
               _loginFacebook(),
               _loginGoogle(),
             ],
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 30),
           Text("Or", style: normalTextStyle),
-          SizedBox(height: 20),
+          SizedBox(height: 30),
           Column(
             children: <Widget>[
               _logEmail(bloc),
               _logPassword(bloc),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               _logText(),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               _buttonSignIn(bloc),
             ],
