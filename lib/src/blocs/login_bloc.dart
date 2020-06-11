@@ -19,7 +19,6 @@ class LoginBloc with Validators {
   Function(String) get changeEmail    => _emailController.sink.add;
   Function(String) get changePassword => _passwordController.sink.add;
   
-
   //Obtener el ultimo valor ingresado a los Streams
   String get email    => _emailController.value;
   String get password => _passwordController.value;
@@ -35,6 +34,7 @@ class LoginBlocName with Validators {
   final _nameController = BehaviorSubject<String>();
 
   Stream<String> get nameStream   => _nameController.stream.transform( validateName );
+
   Function(String) get changeName => _nameController.sink.add;
   String get name => _nameController.value;
 
