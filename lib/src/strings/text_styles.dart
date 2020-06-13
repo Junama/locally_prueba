@@ -74,3 +74,17 @@ TextStyle signInMail = TextStyle(
   fontStyle: FontStyle.normal,
   fontSize: 36.0,
 );
+TextStyle onBoardText = const TextStyle(
+    color:  const Color(0xff565656),
+    fontWeight: FontWeight.w600,
+    fontFamily: "SFProDisplay",
+    fontStyle:  FontStyle.normal,
+    fontSize: 21.0
+);
+TextStyle signInMailBlue = TextStyle(
+  color: const Color(0xffffffff),
+  fontWeight: FontWeight.w700,
+  fontFamily: "SFProText",
+  fontStyle: FontStyle.normal,
+  fontSize: 36.0,
+);

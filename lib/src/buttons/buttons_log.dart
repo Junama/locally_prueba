@@ -30,4 +30,15 @@ final emailLoginButton = LoginButtonCard(
       style: emailTextStyle,
     ),
     colour: Color(0xff6969ff),
-    stream: MaterialPageRoute(builder: (context) => SignUpEmail()));
+    stream: MaterialPageRoute(builder: (context) => SignUpEmail())
+);
+
+final openLocationSettings = LoginButtonCard(
+  text: Text(
+     "Open location settings",
+     style: emailTextStyle,
+  ),
+  colour: Color(0xff6969ff),
+);
+
+

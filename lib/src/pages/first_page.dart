@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:locally/src/buttons/button_class.dart';
 import 'package:locally/src/buttons/buttons_log.dart';
 import 'package:locally/src/pages/second_page.dart';
+import 'package:locally/src/pages/sign_up_step1.dart';
 import 'package:locally/src/strings/text_styles.dart';
 import 'package:locally/src/strings/text_box.dart';
 
@@ -26,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
         children: <Widget>[
           Column(
             children: <Widget>[
-              emailLoginButton,
+             _emailButton(),
               facebookLoginButton,
               googleLoginButton,
               TextBox(
@@ -53,3 +56,17 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+Widget _emailButton(){
+  return Container(
+child: LoginButtonCard(
+    imageIcon: Icon(FontAwesomeIcons.mailBulk, color: Colors.white),
+    text: Text(
+      "continue with Email",
+      style: emailTextStyle,
+    ),
+    colour: Color(0xff6969ff),
+    stream: MaterialPageRoute(builder: (context) => SignUpEmail())),
+  );
+}
+

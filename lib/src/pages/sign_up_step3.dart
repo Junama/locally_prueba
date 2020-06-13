@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:locally/src/blocs/provider.dart';
+import 'package:locally/src/pages/on_board1.dart';
+import 'package:locally/src/pages/onboard.dart';
 import 'package:locally/src/strings/text_styles.dart';
 
 class SignUpName extends StatefulWidget {
@@ -124,5 +126,5 @@ _login(LoginBloc bloc, BuildContext context) {
   print("================");
   print("Password: ${bloc.password} ");
 
- // Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpName()));
+  Navigator.push(context, MaterialPageRoute(builder: (context) => OnBoarding()));
 }

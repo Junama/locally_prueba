@@ -120,6 +120,7 @@ Widget _buttonSignIn(LoginBloc bloc, BuildContext context) {
   );
 }
 
+
 _login(LoginBloc bloc, BuildContext context) {
   print("================");
   print("Email: ${bloc.email} ");
