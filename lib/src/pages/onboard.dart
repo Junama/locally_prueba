@@ -57,18 +57,23 @@ class OnBoarding extends StatelessWidget {
                             )
                           ],
                         ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(
+                            top: 10,
+                            bottom: 10,
+                          ),
+                          child: Text(
+                            "Prender tu ubicación nos ayudará a darte mejores recomendaciones.",
+                            style: normalTextStyle,
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
                       ],
                     ),
                   ],
-                ),
-              ),
-              Container(
-                margin:
-                    EdgeInsets.only(top: 10, bottom: 10, left: 40, right: 40),
-                child: Text(
-                  "Prender tu ubicación nos ayudará a darte mejores recomendaciones.",
-                  style: normalTextGrayStyle,
-                  textAlign: TextAlign.left,
                 ),
               ),
               openLocationSettings,

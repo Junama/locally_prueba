@@ -18,7 +18,7 @@ class _SignUpPassState extends State<SignUpPass> {
 
     return Scaffold(
         appBar: AppBar(
-          leading: BackButton(color: Color(0xff6969ff)),
+          leading: BackButton(color: Colors.black),
           title: Text("Registrate", style: normalTextStyle),
           elevation: 0,
           backgroundColor: Colors.transparent,

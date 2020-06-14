@@ -5,21 +5,22 @@ import 'package:locally/src/strings/text_styles.dart';
 import 'package:locally/src/strings/text_box.dart';
 
 class SignInPage extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
-
     final bloc = Provider.of(context);
-  
+
     return Scaffold(
         appBar: AppBar(
-          leading: BackButton(color: Colors.grey[800]),
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          title: Text("Welcome back", style: normalTextStyle, textAlign: TextAlign.center,)
-          ),
+            leading: BackButton(color: Colors.black),
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            title: Text(
+              "Welcome back",
+              style: normalTextStyle,
+              textAlign: TextAlign.center,
+            )),
         body: SingleChildScrollView(
-                  child: Column(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Column(
@@ -28,17 +29,17 @@ class SignInPage extends StatelessWidget {
                   googleLoginButton,
                 ],
               ),
-              TextBox( text: "Or", textStyle: normalTextStyle ),
+              TextBox(text: "Or", textStyle: normalTextStyle),
               Column(
                 children: <Widget>[
                   _logEmail(bloc, context),
                   _logPassword(bloc),
                 ],
               ),
-               TextBox(
-                  text: "¿olvidaste tu contraseña?",
-                  textStyle: buttonLink,
-                ),
+              TextBox(
+                text: "¿olvidaste tu contraseña?",
+                textStyle: buttonLink,
+              ),
               _buttonSignIn(bloc, context),
             ],
           ),
@@ -47,7 +48,6 @@ class SignInPage extends StatelessWidget {
 }
 
 Widget _logEmail(LoginBloc bloc, BuildContext context) {
-
   return Container(
     padding: EdgeInsets.all(20),
     margin: EdgeInsets.only(left: 20, right: 20),
@@ -73,7 +73,6 @@ Widget _logEmail(LoginBloc bloc, BuildContext context) {
 }
 
 Widget _logPassword(LoginBloc bloc) {
-  
   return Container(
     padding: EdgeInsets.all(20),
     margin: EdgeInsets.only(left: 20, right: 20),
@@ -100,7 +99,6 @@ Widget _logPassword(LoginBloc bloc) {
 }
 
 Widget _buttonSignIn(LoginBloc bloc, BuildContext context) {
-
   return StreamBuilder(
     stream: bloc.formValidStream,
     builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -119,7 +117,6 @@ Widget _buttonSignIn(LoginBloc bloc, BuildContext context) {
     },
   );
 }
-
 
 _login(LoginBloc bloc, BuildContext context) {
   print("================");

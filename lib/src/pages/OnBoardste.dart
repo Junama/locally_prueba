@@ -132,7 +132,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                             SizedBox(height: 15.0),
                             Text(
-                              "Disfruta  :).",
+                              "Devolvamosle el foco a lo local.",
                               style: normalTextStyle,
                             ),
                           ],

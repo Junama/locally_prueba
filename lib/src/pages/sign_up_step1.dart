@@ -17,7 +17,7 @@ class _SignUpEmailState extends State<SignUpEmail> {
 
     return Scaffold(
         appBar: AppBar(
-          leading: BackButton(color: Color(0xff6969ff)),
+          leading: BackButton(color: Colors.black),
           title: Text("Registrate.", style: normalTextStyle),
           elevation: 0,
           backgroundColor: Colors.transparent,
