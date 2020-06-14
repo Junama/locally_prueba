@@ -46,6 +46,12 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/drawable/
+    - assets/images/directions-colour.png
+    - assets/images/Group@2x.png
+    - assets/images/Group.png
+    - assets/images/photographer-colour.png
+    - assets/images/calendarColour.png
+    - assets/images/ticket-colour.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

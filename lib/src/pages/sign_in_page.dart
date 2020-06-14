@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:locally/src/blocs/provider.dart';
 import 'first_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'text_styles.dart';
+import 'package:locally/src/strings/text_styles.dart';
 
 class SignInPage extends StatelessWidget {
   @override

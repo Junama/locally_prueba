@@ -13,7 +13,8 @@ class OnBoarding extends StatelessWidget {
             width: double.infinity,
             alignment: Alignment.topRight,
             child: Image(
-              image: AssetImage("assets/drawable/group.png"),
+              fit: BoxFit.fitWidth,
+              image: AssetImage("assets/images/Group.png"),
             ),
           ),
           Column(
@@ -22,7 +23,7 @@ class OnBoarding extends StatelessWidget {
               Center(
                 child: Container(
                   child: Image(
-                    image: AssetImage("assets/drawable/directions_colour.png"),
+                    image: AssetImage("assets/images/directions-colour.png"),
                   ),
                 ),
               ),

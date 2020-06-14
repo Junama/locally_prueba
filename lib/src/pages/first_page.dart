@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:locally/src/buttons/button_class.dart';
 import 'package:locally/src/buttons/buttons_log.dart';
 import 'package:locally/src/pages/second_page.dart';
-import 'package:locally/src/pages/sign_up_step1.dart';
 import 'package:locally/src/strings/text_styles.dart';
 import 'package:locally/src/strings/text_box.dart';
+import '../buttons/buttons_log.dart';
 
 class LoginPage extends StatefulWidget {
-
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -16,7 +13,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -29,11 +25,12 @@ class _LoginPageState extends State<LoginPage> {
         children: <Widget>[
           Column(
             children: <Widget>[
-             _emailButton(),
+              emailLoginButton,
               facebookLoginButton,
               googleLoginButton,
               TextBox(
-                text:"al crear una cuenta aceptas nuestros terminos y condiciones",
+                text:
+                    "al crear una cuenta aceptas nuestros terminos y condiciones",
                 textStyle: normalTextStyle,
               ),
             ],
@@ -47,26 +44,12 @@ class _LoginPageState extends State<LoginPage> {
               TextBox(
                 text: "Sign in",
                 textStyle: textButton,
-                gesture:MaterialPageRoute(builder: (context) => SignInPage()),
+                gesture: MaterialPageRoute(builder: (context) => SignInPage()),
               ),
             ],
           ),
         ],
-     ),
+      ),
     );
   }
 }
-
-Widget _emailButton(){
-  return Container(
-child: LoginButtonCard(
-    imageIcon: Icon(FontAwesomeIcons.mailBulk, color: Colors.white),
-    text: Text(
-      "continue with Email",
-      style: emailTextStyle,
-    ),
-    colour: Color(0xff6969ff),
-    stream: MaterialPageRoute(builder: (context) => SignUpEmail())),
-  );
-}
-
