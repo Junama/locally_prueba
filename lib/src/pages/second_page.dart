@@ -1,25 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:locally/src/blocs/provider.dart';
-import 'package:locally/src/buttons/buttons_log.dart';
+import 'package:locally/src/utils/buttons_log.dart';
 import 'package:locally/src/strings/text_styles.dart';
 import 'package:locally/src/strings/text_box.dart';
 
 class SignInPage extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
-
     final bloc = Provider.of(context);
-  
+
     return Scaffold(
         appBar: AppBar(
-          leading: BackButton(color: Colors.grey[800]),
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          title: Text("Welcome back", style: normalTextStyle, textAlign: TextAlign.center,)
-          ),
-        body: SingleChildScrollView(
-                  child: Column(
+            leading: BackButton(color: Colors.black),
+            centerTitle: true,
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            title: Text(
+              "Welcome back",
+              style: normalTextStyle,
+              textAlign: TextAlign.center,
+            )),
+        body: Padding(
+          padding: EdgeInsets.only(left: 20, right: 20),
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Column(
@@ -28,29 +31,27 @@ class SignInPage extends StatelessWidget {
                   googleLoginButton,
                 ],
               ),
-              TextBox( text: "Or", textStyle: normalTextStyle ),
+              TextBox(text: "Or", textStyle: normalTextStyle),
               Column(
                 children: <Widget>[
                   _logEmail(bloc, context),
                   _logPassword(bloc),
                 ],
               ),
-               TextBox(
-                  text: "¿olvidaste tu contraseña?",
-                  textStyle: buttonLink,
-                ),
+              TextBox(
+                text: "¿olvidaste tu contraseña?",
+                textStyle: buttonLink,
+              ),
               _buttonSignIn(bloc, context),
             ],
           ),
-        ));
+        )
+    );
   }
 }
 
 Widget _logEmail(LoginBloc bloc, BuildContext context) {
-
   return Container(
-    padding: EdgeInsets.all(20),
-    margin: EdgeInsets.only(left: 20, right: 20),
     height: 67,
     child: StreamBuilder(
       stream: bloc.emailStream,
@@ -73,10 +74,7 @@ Widget _logEmail(LoginBloc bloc, BuildContext context) {
 }
 
 Widget _logPassword(LoginBloc bloc) {
-  
   return Container(
-    padding: EdgeInsets.all(20),
-    margin: EdgeInsets.only(left: 20, right: 20),
     height: 67,
     child: StreamBuilder(
       stream: bloc.passwordStream,
@@ -100,12 +98,11 @@ Widget _logPassword(LoginBloc bloc) {
 }
 
 Widget _buttonSignIn(LoginBloc bloc, BuildContext context) {
-
   return StreamBuilder(
     stream: bloc.formValidStream,
     builder: (BuildContext context, AsyncSnapshot snapshot) {
       return Container(
-        margin: EdgeInsets.only(bottom: 15, left: 20, right: 20),
+        margin: EdgeInsets.only(bottom: 10),
         width: double.infinity,
         height: 67,
         child: RaisedButton(
@@ -119,7 +116,6 @@ Widget _buttonSignIn(LoginBloc bloc, BuildContext context) {
     },
   );
 }
-
 
 _login(LoginBloc bloc, BuildContext context) {
   print("================");
