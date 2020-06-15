@@ -38,149 +38,149 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.dark,
-        child: Container(
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 40.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Container(
-                  height: 600.0,
-                  child: PageView(
-                    physics: ClampingScrollPhysics(),
-                    controller: _pageController,
-                    onPageChanged: (int page) {
-                      setState(() {
-                        _currentPage = page;
-                      });
-                    },
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.all(40.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Center(
-                              child: Image(
-                                image: AssetImage(
-                                  'assets/images/calendarColour.png',
-                                ),
-                                height: 300.0,
-                                width: 300.0,
+      body: Container(
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 40.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Container(
+                height: 600.0,
+                child: PageView(
+                  physics: ClampingScrollPhysics(),
+                  controller: _pageController,
+                  onPageChanged: (int page) {
+                    setState(() {
+                      _currentPage = page;
+                    });
+                  },
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.all(40.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Center(
+                            child: Image(
+                              image: AssetImage(
+                                'assets/images/calendarColour.png',
                               ),
-                            ),
-                            SizedBox(height: 30.0),
-                            Text(
-                              "Revisa toda la oferta local.",
-                              style: signInMailBlue,
-                            ),
-                            SizedBox(height: 15.0),
-                            Text(
-                              "Agenda eventos y compartelos con tus cercanos.",
-                              style: normalTextStyle,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(40.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Center(
-                              child: Image(
-                                image: AssetImage(
-                                  'assets/images/ticket-colour.png',
-                                ),
-                                height: 300.0,
-                                width: 300.0,
-                              ),
-                            ),
-                            SizedBox(height: 30.0),
-                            Text(
-                              "Descubre tu entorno.",
-                              style: signInMailBlue,
-                            ),
-                            SizedBox(height: 15.0),
-                            Text(
-                              "Recibe ofertas, cupones e invitaciones basadas en tu ubicación.",
-                              style: normalTextStyle,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(40.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Center(
-                              child: Image(
-                                image: AssetImage(
-                                  'assets/images/photographer-colour.png',
-                                ),
-                                height: 300.0,
-                                width: 300.0,
-                              ),
-                            ),
-                            SizedBox(height: 30.0),
-                            Text(
-                              '¡Bienvenid@! ve a descubrir Locally.',
-                              style: signInMailBlue,
-                            ),
-                            SizedBox(height: 15.0),
-                            Text(
-                              "Devolvamosle el foco a lo local.",
-                              style: normalTextStyle,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: _buildPageIndicator(),
-                ),
-                _currentPage != _numPages - 1
-                    ? Expanded(
-                        child: Align(
-                          alignment: FractionalOffset.bottomRight,
-                          child: FlatButton(
-                            onPressed: () {
-                              _pageController.nextPage(
-                                duration: Duration(milliseconds: 500),
-                                curve: Curves.ease,
-                              );
-                            },
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.min,
-                              children: <Widget>[
-                                Text(
-                                  'Next',
-                                  style: TextStyle(
-                                    color: Color(0xff6969ff),
-                                    fontSize: 22.0,
-                                  ),
-                                ),
-                                SizedBox(width: 10.0),
-                                Icon(
-                                  Icons.arrow_forward,
-                                  color: Color(0xff6969ff),
-                                  size: 30.0,
-                                ),
-                              ],
+                              height: 200.0,
+                              width: 200.0,
                             ),
                           ),
+                          SizedBox(height: 30.0),
+                          Text(
+                            "Revisa toda la oferta local.",
+                            style: signInMailBlue,
+                          ),
+                          SizedBox(height: 15.0),
+                          Text(
+                            "Agenda eventos y compartelos con tus cercanos.",
+                            style: normalTextStyle,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(40.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Center(
+                            child: Image(
+                              image: AssetImage(
+                                'assets/images/ticket-colour.png',
+                              ),
+                              height: 200.0,
+                              width: 200.0,
+                            ),
+                          ),
+                          SizedBox(height: 30.0),
+                          Text(
+                            "Descubre tu entorno.",
+                            style: signInMailBlue,
+                          ),
+                          SizedBox(height: 15.0),
+                          Text(
+                            "Recibe ofertas, cupones e invitaciones basadas en tu ubicación.",
+                            style: normalTextStyle,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(40.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Center(
+                            child: Image(
+                              image: AssetImage(
+                                'assets/images/photographer-colour.png',
+                              ),
+                              height: 200.0,
+                              width: 200.0,
+                            ),
+                          ),
+                          SizedBox(height: 30.0),
+                          Text(
+                            '¡Bienvenid@! ve a descubrir Locally.',
+                            style: signInMailBlue,
+                          ),
+                          SizedBox(height: 15.0),
+                          Text(
+                            "Devolvamosle el foco a lo local.",
+                            style: normalTextStyle,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: _buildPageIndicator(),
+              ),
+              _currentPage != _numPages - 1
+                  ? Expanded(
+                      child: Align(
+                        alignment: FractionalOffset.bottomRight,
+                        child: FlatButton(
+                          onPressed: () {
+                            _pageController.nextPage(
+                              duration: Duration(milliseconds: 500),
+                              curve: Curves.ease,
+                            );
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Text(
+                                'Next',
+                                style: TextStyle(
+                                  color: Color(0xff6969ff),
+                                  fontSize: 22.0,
+                                ),
+                              ),
+                              SizedBox(width: 10.0),
+                              Icon(
+                                Icons.arrow_forward,
+                                color: Color(0xff6969ff),
+                                size: 30.0,
+                              ),
+                            ],
+                          ),
                         ),
-                      )
-                    : Text(''),
-              ],
-            ),
+                      ),
+                    )
+                  : Text(''),
+            ],
           ),
         ),
       ),

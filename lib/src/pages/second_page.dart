@@ -19,7 +19,8 @@ class SignInPage extends StatelessWidget {
               style: normalTextStyle,
               textAlign: TextAlign.center,
             )),
-        body: SingleChildScrollView(
+        body: Padding(
+          padding: EdgeInsets.only(left: 20, right: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
@@ -49,8 +50,6 @@ class SignInPage extends StatelessWidget {
 
 Widget _logEmail(LoginBloc bloc, BuildContext context) {
   return Container(
-    padding: EdgeInsets.all(20),
-    margin: EdgeInsets.only(left: 20, right: 20),
     height: 67,
     child: StreamBuilder(
       stream: bloc.emailStream,
@@ -74,8 +73,6 @@ Widget _logEmail(LoginBloc bloc, BuildContext context) {
 
 Widget _logPassword(LoginBloc bloc) {
   return Container(
-    padding: EdgeInsets.all(20),
-    margin: EdgeInsets.only(left: 20, right: 20),
     height: 67,
     child: StreamBuilder(
       stream: bloc.passwordStream,
@@ -103,7 +100,7 @@ Widget _buttonSignIn(LoginBloc bloc, BuildContext context) {
     stream: bloc.formValidStream,
     builder: (BuildContext context, AsyncSnapshot snapshot) {
       return Container(
-        margin: EdgeInsets.only(bottom: 15, left: 20, right: 20),
+        margin: EdgeInsets.only(bottom: 20),
         width: double.infinity,
         height: 67,
         child: RaisedButton(

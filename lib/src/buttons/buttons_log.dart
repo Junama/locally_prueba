@@ -4,8 +4,6 @@ import 'package:locally/src/buttons/button_class.dart';
 import 'package:locally/src/pages/OnBoardste.dart';
 import 'package:locally/src/pages/sign_up_step1.dart';
 import 'package:locally/src/strings/text_styles.dart';
-
-import '../pages/on_board1.dart';
 import '../pages/onboard.dart';
 
 final googleLoginButton = LoginButtonCard(
@@ -27,7 +25,7 @@ final facebookLoginButton = LoginButtonCard(
     stream: MaterialPageRoute(builder: (context) => OnBoarding()));
 
 final emailLoginButton = LoginButtonCard(
-    imageIcon: Icon(FontAwesomeIcons.at, color: Colors.white),
+    imageIcon: Icon(Icons.email, color: Colors.white),
     text: Text(
       "continue with Email",
       style: emailTextStyle,

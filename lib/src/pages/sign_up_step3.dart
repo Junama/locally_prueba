@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:locally/src/blocs/provider.dart';
-import 'package:locally/src/pages/on_board1.dart';
 import 'package:locally/src/pages/onboard.dart';
 import 'package:locally/src/strings/text_styles.dart';
 

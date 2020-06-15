@@ -22,29 +22,31 @@ class _SignUpEmailState extends State<SignUpEmail> {
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
-        body: Column(
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.only(left: 20),
-              width: double.infinity,
-              child: Text(
-                "Ingresa tu correo.",
-                textAlign: TextAlign.left,
-                style: signInMailBlue,
+        body: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: <Widget>[
+              Container(
+                width: double.infinity,
+                child: Text(
+                  "Ingresa tu correo.",
+                  textAlign: TextAlign.left,
+                  style: signInMailBlue,
+                ),
               ),
-            ),
-            _email(bloc),
-            _stepText(),
-            _loading(),
-            _buttonSignIn(bloc, context),
-          ],
+              _email(bloc),
+              _stepText(),
+              _loading(),
+              _buttonSignIn(bloc, context),
+            ],
+          ),
         ));
   }
 }
 
 Widget _email(LoginBloc bloc) {
   return Container(
-    margin: EdgeInsets.all(20),
+    margin: EdgeInsets.only(top: 20, bottom: 20),
     child: StreamBuilder(
       stream: bloc.emailStream,
       builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -99,7 +101,7 @@ Widget _buttonSignIn(LoginBloc bloc, BuildContext context) {
     stream: bloc.emailStream,
     builder: (BuildContext context, AsyncSnapshot snapshot) {
       return Container(
-        margin: EdgeInsets.only(bottom: 30, left: 20, right: 20, top: 20),
+        margin: EdgeInsets.only(bottom: 30, top: 20),
         width: double.infinity,
         height: 67,
         child: RaisedButton(

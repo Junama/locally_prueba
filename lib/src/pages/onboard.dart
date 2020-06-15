@@ -76,7 +76,10 @@ class OnBoarding extends StatelessWidget {
                   ],
                 ),
               ),
-              openLocationSettings,
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0, right: 20),
+                child: openLocationSettings,
+              ),
             ],
           ),
         ],
