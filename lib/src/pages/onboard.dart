@@ -13,7 +13,8 @@ class OnBoarding extends StatelessWidget {
             width: double.infinity,
             alignment: Alignment.topRight,
             child: Image(
-              image: AssetImage("assets/drawable/group.png"),
+              fit: BoxFit.fitWidth,
+              image: AssetImage("assets/images/Group.png"),
             ),
           ),
           Column(
@@ -22,7 +23,7 @@ class OnBoarding extends StatelessWidget {
               Center(
                 child: Container(
                   child: Image(
-                    image: AssetImage("assets/drawable/directions_colour.png"),
+                    image: AssetImage("assets/images/directions-colour.png"),
                   ),
                 ),
               ),
@@ -56,21 +57,29 @@ class OnBoarding extends StatelessWidget {
                             )
                           ],
                         ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(
+                            top: 10,
+                            bottom: 10,
+                          ),
+                          child: Text(
+                            "Prender tu ubicación nos ayudará a darte mejores recomendaciones.",
+                            style: normalTextStyle,
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
                       ],
                     ),
                   ],
                 ),
               ),
-              Container(
-                margin:
-                    EdgeInsets.only(top: 10, bottom: 10, left: 40, right: 40),
-                child: Text(
-                  "Prender tu ubicación nos ayudará a darte mejores recomendaciones.",
-                  style: normalTextGrayStyle,
-                  textAlign: TextAlign.left,
-                ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0, right: 20),
+                child: openLocationSettings,
               ),
-              openLocationSettings,
             ],
           ),
         ],

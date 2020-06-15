@@ -4,46 +4,46 @@ import 'package:locally/src/blocs/provider.dart';
 import 'package:locally/src/pages/sign_up_step3.dart';
 import 'package:locally/src/strings/text_styles.dart';
 
-class SignUpPass extends StatefulWidget {
+import '../strings/text_styles.dart';
 
+class SignUpPass extends StatefulWidget {
   @override
   _SignUpPassState createState() => _SignUpPassState();
 }
 
 class _SignUpPassState extends State<SignUpPass> {
-   @override
+  @override
   Widget build(BuildContext context) {
-
     final bloc = Provider.of(context);
 
     return Scaffold(
         appBar: AppBar(
-          leading: BackButton(color: Colors.grey[800]),
+          leading: BackButton(color: Colors.black),
           title: Text("Registrate", style: normalTextStyle),
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.only(left: 20),
-                width: double.infinity,
-                child: Text("Ingresa contraseña", textAlign: TextAlign.left, style: signInMail,
-                       ),
-                ),
-              _email(bloc),
-              _stepText(),
-              _loading(),
-              _buttonSignIn(bloc, context),
-            ],
-          ),
+        body: Column(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(left: 20),
+              width: double.infinity,
+              child: Text(
+                "Ingresa contraseña.",
+                textAlign: TextAlign.left,
+                style: signInMailBlue,
+              ),
+            ),
+            _email(bloc),
+            _stepText(),
+            _loading(),
+            _buttonSignIn(bloc, context),
+          ],
         ));
   }
 }
 
 Widget _email(LoginBloc bloc) {
-  
   return Container(
     margin: EdgeInsets.all(20),
     child: StreamBuilder(
@@ -67,10 +67,7 @@ Widget _email(LoginBloc bloc) {
 }
 
 Widget _stepText() {
-  return Stack(children: <Widget>[
-    Container(
-        width: 84, height: 45, child: Text("Paso 2/3", style: normalTextStyle)),
-  ]);
+  return Container(width: 84, child: Text("Paso 2/3", style: normalTextStyle));
 }
 
 Widget _loading() {
@@ -84,24 +81,21 @@ Widget _loading() {
           color: const Color(0xffd4d4d4),
         ),
         child: Container(
-            width: 95,
-            height: 7,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(6)),
-                color: const Color(0xff6969ff)
-            ),
-            child: LinearProgressIndicator(
+          width: 95,
+          height: 7,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(6)),
+              color: const Color(0xff6969ff)),
+          child: LinearProgressIndicator(
             backgroundColor: Color(0xffd4d4d4),
-            value: 0.63,
+            value: 0.67,
             valueColor: AlwaysStoppedAnimation<Color>(Color(0xff6969ff)),
-            ),   
-        )
-    ),
+          ),
+        )),
   );
 }
 
 Widget _buttonSignIn(LoginBloc bloc, BuildContext context) {
- 
   return StreamBuilder(
     stream: bloc.passwordStream,
     builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -125,5 +119,6 @@ _login(LoginBloc bloc, BuildContext context) {
   print("================");
   print("Password: ${bloc.password} ");
 
-  Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpName()));
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => SignUpName()));
 }
