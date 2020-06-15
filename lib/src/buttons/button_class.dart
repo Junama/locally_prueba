@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 
-
 class LoginButtonCard extends StatelessWidget {
-  
   LoginButtonCard(
-      {this.colour, this.cardChild, this.stream, this.text, this.imageIcon}
-  );
+      {this.colour, this.cardChild, this.stream, this.text, this.imageIcon});
 
   final Color colour;
   final Widget cardChild;
@@ -18,7 +15,7 @@ class LoginButtonCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 67,
-      margin: EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
+      margin: EdgeInsets.only(top: 10, bottom: 10),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(6)), color: colour),
       child: FlatButton(

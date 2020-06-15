@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:locally/src/blocs/provider.dart';
-import 'package:locally/src/utils/buttons_log.dart';
+import 'package:locally/src/buttons/buttons_log.dart';
 import 'package:locally/src/strings/text_styles.dart';
 import 'package:locally/src/strings/text_box.dart';
 
@@ -12,7 +12,6 @@ class SignInPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
             leading: BackButton(color: Colors.black),
-            centerTitle: true,
             elevation: 0,
             backgroundColor: Colors.transparent,
             title: Text(
@@ -45,8 +44,7 @@ class SignInPage extends StatelessWidget {
               _buttonSignIn(bloc, context),
             ],
           ),
-        )
-    );
+        ));
   }
 }
 
@@ -102,7 +100,7 @@ Widget _buttonSignIn(LoginBloc bloc, BuildContext context) {
     stream: bloc.formValidStream,
     builder: (BuildContext context, AsyncSnapshot snapshot) {
       return Container(
-        margin: EdgeInsets.only(bottom: 10),
+        margin: EdgeInsets.only(bottom: 20),
         width: double.infinity,
         height: 67,
         child: RaisedButton(

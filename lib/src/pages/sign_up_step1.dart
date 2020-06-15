@@ -20,31 +20,27 @@ class _SignUpEmailState extends State<SignUpEmail> {
           leading: BackButton(color: Colors.black),
           title: Text("Registrate.", style: normalTextStyle),
           elevation: 0,
-          centerTitle: true,
           backgroundColor: Colors.transparent,
         ),
-        body: SingleChildScrollView(
-                  child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              children: <Widget>[
-                Container(
-                  width: double.infinity,
-                  child: Text(
-                    "Ingresa tu correo.",
-                    textAlign: TextAlign.left,
-                    style: signInMailBlue,
-                  ),
+        body: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: <Widget>[
+              Container(
+                width: double.infinity,
+                child: Text(
+                  "Ingresa tu correo.",
+                  textAlign: TextAlign.left,
+                  style: signInMailBlue,
                 ),
-                _email(bloc),
-                _stepText(),
-                _loading(),
-                _buttonSignIn(bloc, context),
-              ],
-            ),
+              ),
+              _email(bloc),
+              _stepText(),
+              _loading(),
+              _buttonSignIn(bloc, context),
+            ],
           ),
-        )
-    );
+        ));
   }
 }
 

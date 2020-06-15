@@ -23,24 +23,22 @@ class _SignUpNameState extends State<SignUpName> {
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
-        body: SingleChildScrollView(
-                  child: Column(
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.only(left: 20),
-                width: double.infinity,
-                child: Text(
-                  "Ingresa nombre completo",
-                  textAlign: TextAlign.left,
-                  style: signInMailBlue,
-                ),
+        body: Column(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(left: 20),
+              width: double.infinity,
+              child: Text(
+                "Ingresa nombre completo",
+                textAlign: TextAlign.left,
+                style: signInMailBlue,
               ),
-              _name(bloc),
-              _stepText(),
-              _loading(),
-              _buttonSignIn(bloc, context),
-            ],
-          ),
+            ),
+            _name(bloc),
+            _stepText(),
+            _loading(),
+            _buttonSignIn(bloc, context),
+          ],
         ));
   }
 }

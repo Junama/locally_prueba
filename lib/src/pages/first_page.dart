@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:locally/src/utils/buttons_log.dart';
+import 'package:locally/src/buttons/buttons_log.dart';
 import 'package:locally/src/pages/second_page.dart';
 import 'package:locally/src/strings/text_styles.dart';
 import 'package:locally/src/strings/text_box.dart';
-import '../utils/button_class.dart';
-import '../utils/buttons_log.dart';
-import 'sign_up_step1.dart';
+import '../buttons/buttons_log.dart';
 
-class LoginPage extends StatefulWidget {
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
           children: <Widget>[
             Column(
               children: <Widget>[
-                _emailLoginButton(),
+                emailLoginButton,
                 facebookLoginButton,
                 googleLoginButton,
                 TextBox(
@@ -58,18 +51,4 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-}
-
-Widget _emailLoginButton() {
-
-  return Container(
-    child: LoginButtonCard(
-    imageIcon: Icon(Icons.email, color: Colors.white),
-    text: Text(
-      "continue with Email",
-      style: emailTextStyle,
-    ),
-    colour: Color(0xff6969ff),
-    stream: MaterialPageRoute(builder: (context) => SignUpEmail())),
-  );
 }

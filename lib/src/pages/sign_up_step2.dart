@@ -23,24 +23,22 @@ class _SignUpPassState extends State<SignUpPass> {
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
-        body: SingleChildScrollView(
-                  child: Column(
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.only(left: 20),
-                width: double.infinity,
-                child: Text(
-                  "Ingresa contraseña.",
-                  textAlign: TextAlign.left,
-                  style: signInMailBlue,
-                ),
+        body: Column(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(left: 20),
+              width: double.infinity,
+              child: Text(
+                "Ingresa contraseña.",
+                textAlign: TextAlign.left,
+                style: signInMailBlue,
               ),
-              _email(bloc),
-              _stepText(),
-              _loading(),
-              _buttonSignIn(bloc, context),
-            ],
-          ),
+            ),
+            _email(bloc),
+            _stepText(),
+            _loading(),
+            _buttonSignIn(bloc, context),
+          ],
         ));
   }
 }
