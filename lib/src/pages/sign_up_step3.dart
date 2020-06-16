@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:locally/src/blocs/provider.dart';
 import 'package:locally/src/pages/onboard.dart';
-import 'package:locally/src/strings/text_styles.dart';
+import 'package:locally/src/utils/text_styles.dart';
 
-import '../strings/text_styles.dart';
+import '../utils/text_styles.dart';
 
 class SignUpName extends StatefulWidget {
   @override
@@ -23,22 +23,24 @@ class _SignUpNameState extends State<SignUpName> {
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
-        body: Column(
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.only(left: 20),
-              width: double.infinity,
-              child: Text(
-                "Ingresa nombre completo",
-                textAlign: TextAlign.left,
-                style: signInMailBlue,
+        body: SingleChildScrollView(
+                  child: Column(
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.only(left: 20),
+                width: double.infinity,
+                child: Text(
+                  "Ingresa nombre completo",
+                  textAlign: TextAlign.left,
+                  style: signInMailBlue,
+                ),
               ),
-            ),
-            _name(bloc),
-            _stepText(),
-            _loading(),
-            _buttonSignIn(bloc, context),
-          ],
+              _name(bloc),
+              _stepText(),
+              _loading(),
+              _buttonSignIn(bloc, context),
+            ],
+          ),
         ));
   }
 }

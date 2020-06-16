@@ -21,18 +21,18 @@ class UsersLocally {
     String name;
 
     factory UsersLocally.fromJson(Map<String, dynamic> json) => UsersLocally(
-        mail: json["Mail"],
-        password: json["Password"],
-        id: json["Id"],
-        perfil: json["Perfil"],
-        name: json["Name"],
+        mail     : json["Mail"],
+        password : json["Password"],
+        id       : json["Id"],
+        perfil   : json["Perfil"],
+        name     : json["Name"],
     );
 
     Map<String, dynamic> toJson() => {
-        "Mail": mail,
-        "Password": password,
-        "Id": id,
-        "Perfil": perfil,
-        "Name": name,
+        "Mail"     : mail,
+        "Password" : password,
+        "Id"       : id,
+        "Perfil"   : perfil,
+        "Name"     : name,
     };
 }

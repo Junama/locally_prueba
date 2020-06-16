@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:locally/src/strings/text_styles.dart';
+import 'package:locally/src/utils/text_styles.dart';
 
-import '../strings/text_styles.dart';
+import '../utils/text_styles.dart';
 
 class OnboardingScreen extends StatefulWidget {
   @override
@@ -37,8 +36,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-
-    final _screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
       body: Container(

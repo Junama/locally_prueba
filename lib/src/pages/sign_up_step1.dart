@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:locally/src/blocs/provider.dart';
 import 'package:locally/src/pages/sign_up_step2.dart';
-import 'package:locally/src/strings/text_styles.dart';
+import 'package:locally/src/utils/text_styles.dart';
+import 'package:locally/src/utils/utils.dart';
 
-import '../strings/text_styles.dart';
+import '../utils/text_styles.dart';
 
 class SignUpEmail extends StatefulWidget {
+
   @override
   _SignUpEmailState createState() => _SignUpEmailState();
 }
@@ -20,31 +22,36 @@ class _SignUpEmailState extends State<SignUpEmail> {
           leading: BackButton(color: Colors.black),
           title: Text("Registrate.", style: normalTextStyle),
           elevation: 0,
+          centerTitle: true,
           backgroundColor: Colors.transparent,
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            children: <Widget>[
-              Container(
-                width: double.infinity,
-                child: Text(
-                  "Ingresa tu correo.",
-                  textAlign: TextAlign.left,
-                  style: signInMailBlue,
+        body: SingleChildScrollView(
+                  child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: <Widget>[
+                Container(
+                  width: double.infinity,
+                  child: Text(
+                    "Ingresa tu correo.",
+                    textAlign: TextAlign.left,
+                    style: signInMailBlue,
+                  ),
                 ),
-              ),
-              _email(bloc),
-              _stepText(),
-              _loading(),
-              _buttonSignIn(bloc, context),
-            ],
+                _email(bloc),
+                _stepText(),
+                _loading(),
+                _buttonSignIn(bloc, context),
+              ],
+            ),
           ),
-        ));
+        )
+    );
   }
 }
 
 Widget _email(LoginBloc bloc) {
+  
   return Container(
     margin: EdgeInsets.only(top: 20, bottom: 20),
     child: StreamBuilder(
@@ -97,6 +104,7 @@ Widget _loading() {
 }
 
 Widget _buttonSignIn(LoginBloc bloc, BuildContext context) {
+  
   return StreamBuilder(
     stream: bloc.emailStream,
     builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -108,7 +116,7 @@ Widget _buttonSignIn(LoginBloc bloc, BuildContext context) {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           disabledColor: Colors.grey[300],
           child: Text("siguente", style: normalWhiteTextStyle),
-          onPressed: snapshot.hasData ? () => _login(bloc, context) : null,
+          onPressed: snapshot.hasData ? () => _registerMail(bloc, context) : null,
           color: Color(0xff6969ff),
         ),
       );
@@ -116,10 +124,11 @@ Widget _buttonSignIn(LoginBloc bloc, BuildContext context) {
   );
 }
 
-_login(LoginBloc bloc, BuildContext context) {
-  print("================");
-  print("Email: ${bloc.email} ");
+_registerMail(LoginBloc bloc, BuildContext context) async {
+ 
+  
 
-  Navigator.push(
-      context, MaterialPageRoute(builder: (context) => SignUpPass()));
+     Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPass()));
+
+
 }

@@ -3,8 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:locally/src/blocs/provider.dart';
 import 'package:locally/src/routes/routes.dart';
+import 'package:locally/src/users_preference/preferences_users.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+
+  WidgetsFlutterBinding.ensureInitialized(); 
+ 
+  final prefs = new UsersPreference();
+  await prefs.initPrefs();
+
+  runApp(MyApp());
+}
  
 class MyApp extends StatelessWidget {
 

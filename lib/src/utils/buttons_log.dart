@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:locally/src/utils/button_class.dart';
 import 'package:locally/src/pages/onboard_page.dart';
-import 'package:locally/src/strings/text_styles.dart';
+import 'package:locally/src/utils/text_styles.dart';
 import '../pages/onboard.dart';
 
 

@@ -2,14 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:locally/src/blocs/provider.dart';
 import 'package:locally/src/pages/sign_up_step3.dart';
-import 'package:locally/src/strings/text_styles.dart';
+import 'package:locally/src/providers/users_provider.dart';
+import 'package:locally/src/utils/text_styles.dart';
+import 'package:locally/src/utils/utils.dart';
 
-import '../strings/text_styles.dart';
+
+import '../utils/text_styles.dart';
 
 class SignUpPass extends StatefulWidget {
   @override
   _SignUpPassState createState() => _SignUpPassState();
 }
+
+final userProvider = new UsersProvider();
 
 class _SignUpPassState extends State<SignUpPass> {
   @override
@@ -23,27 +28,30 @@ class _SignUpPassState extends State<SignUpPass> {
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
-        body: Column(
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.only(left: 20),
-              width: double.infinity,
-              child: Text(
-                "Ingresa contraseña.",
-                textAlign: TextAlign.left,
-                style: signInMailBlue,
+        body: SingleChildScrollView(
+                  child: Column(
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.only(left: 20),
+                width: double.infinity,
+                child: Text(
+                  "Ingresa contraseña.",
+                  textAlign: TextAlign.left,
+                  style: signInMailBlue,
+                ),
               ),
-            ),
-            _email(bloc),
-            _stepText(),
-            _loading(),
-            _buttonSignIn(bloc, context),
-          ],
+              _password(bloc),
+              _stepText(),
+              _loading(),
+              _buttonSignIn(bloc, context),
+            ],
+          ),
         ));
   }
 }
 
-Widget _email(LoginBloc bloc) {
+Widget _password(LoginBloc bloc) {
+  
   return Container(
     margin: EdgeInsets.all(20),
     child: StreamBuilder(
@@ -71,6 +79,7 @@ Widget _stepText() {
 }
 
 Widget _loading() {
+  
   return Opacity(
     opacity: 0.800000011920929,
     child: Container(
@@ -96,6 +105,7 @@ Widget _loading() {
 }
 
 Widget _buttonSignIn(LoginBloc bloc, BuildContext context) {
+  
   return StreamBuilder(
     stream: bloc.passwordStream,
     builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -107,7 +117,7 @@ Widget _buttonSignIn(LoginBloc bloc, BuildContext context) {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           disabledColor: Colors.grey[300],
           child: Text("siguente", style: normalWhiteTextStyle),
-          onPressed: snapshot.hasData ? () => _login(bloc, context) : null,
+          onPressed: snapshot.hasData ? () => _registerPass(bloc, context) : null,
           color: Color(0xff6969ff),
         ),
       );
@@ -115,10 +125,16 @@ Widget _buttonSignIn(LoginBloc bloc, BuildContext context) {
   );
 }
 
-_login(LoginBloc bloc, BuildContext context) {
-  print("================");
-  print("Password: ${bloc.password} ");
+_registerPass(LoginBloc bloc, BuildContext context) async{
 
-  Navigator.push(
-      context, MaterialPageRoute(builder: (context) => SignUpName()));
+  final info = await userProvider.newUser(bloc.email, bloc.password);
+  
+  if ( info["ok"] ) {
+
+     Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpName()));
+
+   }else{
+     showAlert(context, "Usuario existente");
+   }
+
 }
