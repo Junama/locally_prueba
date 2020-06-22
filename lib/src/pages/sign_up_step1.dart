@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:locally/src/blocs/provider.dart';
 import 'package:locally/src/pages/sign_up_step2.dart';
 import 'package:locally/src/utils/text_styles.dart';
-import 'package:locally/src/utils/utils.dart';
 
 import '../utils/text_styles.dart';
 
@@ -124,11 +123,8 @@ Widget _buttonSignIn(LoginBloc bloc, BuildContext context) {
   );
 }
 
-_registerMail(LoginBloc bloc, BuildContext context) async {
+_registerMail(LoginBloc bloc, BuildContext context) {
  
-  
-
      Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPass()));
-
 
 }

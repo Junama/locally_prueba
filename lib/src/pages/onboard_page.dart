@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:locally/src/pages/inicio_page.dart';
 import 'package:locally/src/utils/text_styles.dart';
 
 import '../utils/text_styles.dart';
@@ -71,14 +72,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                           ),
                           SizedBox(height: 30.0),
-                          Text(
-                            "Revisa toda la oferta local.",
-                            style: signInMailBlue,
+                          Text("Revisa toda la oferta local.",style: signInMailBlue,
                           ),
                           SizedBox(height: 15.0),
-                          Text(
-                            "Agenda eventos y compartelos con tus cercanos.",
-                            style: normalTextStyle,
+                          Text("Agenda eventos y compartelos con tus cercanos.",style: normalTextStyle,
                           ),
                         ],
                       ),
@@ -99,14 +96,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                           ),
                           SizedBox(height: 30.0),
-                          Text(
-                            "Descubre tu entorno.",
-                            style: signInMailBlue,
+                          Text("Descubre tu entorno.",style: signInMailBlue,
                           ),
                           SizedBox(height: 15.0),
-                          Text(
-                            "Recibe ofertas, cupones e invitaciones basadas en tu ubicación.",
-                            style: normalTextStyle,
+                          Text("Recibe ofertas, cupones e invitaciones basadas en tu ubicación.",
+                               style: normalTextStyle,
                           ),
                         ],
                       ),
@@ -127,14 +121,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                           ),
                           SizedBox(height: 30.0),
-                          Text(
-                            '¡Bienvenid@! ve a descubrir Locally.',
-                            style: signInMailBlue,
+                          Text('¡Bienvenid@! ve a descubrir Locally.',style: signInMailBlue,
                           ),
                           SizedBox(height: 15.0),
-                          Text(
-                            "Devolvamosle el foco a lo local.",
-                            style: normalTextStyle,
+                          Text("Devolvamosle el foco a lo local.",style: normalTextStyle,
                           ),
                         ],
                       ),
@@ -161,12 +151,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
-                              Text(
-                                'Next',
-                                style: TextStyle(
-                                  color: Color(0xff6969ff),
-                                  fontSize: 22.0,
-                                ),
+                              Text('Next',style: TextStyle(color: Color(0xff6969ff),
+                                   fontSize: 22.0),
                               ),
                               SizedBox(width: 10.0),
                               Icon(
@@ -190,21 +176,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               width: double.infinity,
               color: Color(0xff6969ff),
               child: GestureDetector(
-                onTap: () => print('Get started'),
+                onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context) => Inicio())),
                 child: Center(
                   child: Padding(
                     padding: EdgeInsets.only(bottom: 30.0),
-                    child: Text(
-                      'Comenzar',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    child: Text('Comenzar',style: TextStyle(color: Colors.white,fontSize: 20.0,
+                                 fontWeight: FontWeight.bold),
+                           ),
                     ),
                   ),
                 ),
-              ),
             )
           : Text(''),
     );

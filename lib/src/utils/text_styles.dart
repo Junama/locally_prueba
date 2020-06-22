@@ -87,3 +87,10 @@ TextStyle signInMailBlue = TextStyle(
   fontStyle: FontStyle.normal,
   fontSize: 36.0,
 );
+TextStyle alertDialog = TextStyle(
+  color: Color(0xff6969ff),
+  fontWeight: FontWeight.w700,
+  fontFamily: "SFProText",
+  fontStyle: FontStyle.normal,
+  fontSize: 25.0,
+);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:locally/src/blocs/provider.dart';
 import 'package:locally/src/pages/inicio_page.dart';
-import 'package:locally/src/pages/sign_up_step2.dart';
+
 import 'package:locally/src/providers/users_provider.dart';
 import 'package:locally/src/utils/buttons_log.dart';
 import 'package:locally/src/utils/text_styles.dart';
@@ -128,7 +128,7 @@ Widget _buttonSignIn(LoginBloc bloc, BuildContext context) {
   );
 }
 
-_login(LoginBloc bloc, BuildContext context) async{
+Future _login(LoginBloc bloc, BuildContext context) async{
   
   Map info = await userLoginProvider.singUpUsers(bloc.email, bloc.password);
 

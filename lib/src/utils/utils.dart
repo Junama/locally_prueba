@@ -13,12 +13,12 @@ void showAlert( BuildContext context, String message ) {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0)),
           elevation: 10,
-          backgroundColor: Color(0xff6969ff),
-          title: Text(message, style:buttonSignIn),
+          backgroundColor: Colors.white,
+          title: Text(message, style:alertDialog),
           actions: <Widget>[
             FlatButton(
               onPressed: ()=> Navigator.of(context).pop(), 
-              child: Text("Ok", style: buttonSignIn),
+              child: Text("Ok", style: alertDialog),
             )
           ],
         );

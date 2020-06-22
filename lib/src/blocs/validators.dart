@@ -31,7 +31,7 @@ class Validators {
 
   final validateName    = StreamTransformer<String, String>.fromHandlers(
     handleData: ( name, sink ){
-      
+  
       if ( name.length >= 4 ) {
         sink.add( name );
       } else {

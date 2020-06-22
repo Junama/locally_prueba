@@ -121,9 +121,9 @@ Widget _buttonSignIn(LoginBloc bloc, BuildContext context) {
 }
 
 _login(LoginBloc bloc, BuildContext context) {
+  
   print("================");
   print("Password: ${bloc.password} ");
 
-  Navigator.push(
-      context, MaterialPageRoute(builder: (context) => OnBoarding()));
+  Navigator.push(context, MaterialPageRoute(builder: (context) => OnBoarding()));
 }

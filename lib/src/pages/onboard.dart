@@ -41,18 +41,13 @@ class OnBoarding extends StatelessWidget {
                       Column(
                         children: <Widget>[
                           Container(
-                            child: Text(
-                              "¡Listo!, Descubre cultura, comercio y ocio ",
-                              style: signInMail,
-                              textAlign: TextAlign.left,
+                            child: Text("¡Listo!, Descubre cultura, comercio y ocio ",style: signInMail,
+                                        textAlign: TextAlign.left,
                             ),
                           ),
                           Row(
                             children: <Widget>[
-                              Text(
-                                "cerca de ti",
-                                style: signInMailBlue,
-                                textAlign: TextAlign.left,
+                              Text("cerca de ti",style: signInMailBlue,textAlign: TextAlign.left,
                               ),
                               SizedBox(
                                 width: 20,
@@ -71,11 +66,9 @@ class OnBoarding extends StatelessWidget {
                               top: 10,
                               bottom: 10,
                             ),
-                            child: Text(
-                              "Prender tu ubicación nos ayudará a darte mejores recomendaciones.",
-                              style: normalTextStyle,
-                              textAlign: TextAlign.left,
-                            ),
+                            child: Text("Prender tu ubicación nos ayudará a darte mejores recomendaciones.",style: normalTextStyle,
+                                        textAlign: TextAlign.left,
+                                   ),
                           ),
                         ],
                       ),
