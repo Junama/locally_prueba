@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:locally/src/pages/inicio_page.dart';
+import 'package:locally/src/pages/home_page.dart';
 import 'package:locally/src/utils/text_styles.dart';
 
 import '../utils/text_styles.dart';
@@ -176,7 +176,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               width: double.infinity,
               color: Color(0xff6969ff),
               child: GestureDetector(
-                onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context) => Inicio())),
+                onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage())),
                 child: Center(
                   child: Padding(
                     padding: EdgeInsets.only(bottom: 30.0),

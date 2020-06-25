@@ -4,11 +4,11 @@ import "package:http/http.dart" as http;
 import 'package:locally/src/users_preference/preferences_users.dart';
 
 class UsersProvider {
-
+  
   //ApiKey firebase
   final String _firebaseToken = "AIzaSyDkHFi_Ih5t_U9qtjg5Zkg_340WGc9IHtM";
   final _prefs = new UsersPreference(); 
-
+  
   Future<Map<String, dynamic>> singUpUsers(String email, String password) async{
 
      final authData = {
@@ -70,4 +70,5 @@ class UsersProvider {
         return{ "ok": false, "mensaje":decodeResp["error"]["message"] };
      }
   }
+      
 }

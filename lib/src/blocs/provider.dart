@@ -5,24 +5,21 @@ export 'package:locally/src/blocs/login_bloc.dart';
 //Manejamos multiples instancias de Bloc
 class Provider extends InheritedWidget {
 
-  static Provider _instancia;
+  static Provider _instance;
 
   factory Provider({ Key key, Widget child }){
 
-    if ( _instancia ==  null ) {
-      _instancia = new Provider._internal(key: key, child: child);
+    if ( _instance ==  null ) {
+      _instance = new Provider._internal(key: key, child: child);
     }
 
-    return _instancia;
+    return _instance;
   }
 
   Provider._internal({ Key key, Widget child })
    : super( key: key, child: child );
 
   final loginBloc = LoginBloc();
-
-  //Provider({ Key key, Widget child })
-  // : super( key: key, child: child );
 
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) => true;
@@ -31,8 +28,5 @@ class Provider extends InheritedWidget {
 
     return context.dependOnInheritedWidgetOfExactType<Provider>().loginBloc;
     //Tomamos el contexto del arbol de Widgets. Busca el provider
-
   }
-
-
 }

@@ -29,16 +29,3 @@ class LoginBloc with Validators {
   }
 }
 
-class LoginBlocName with Validators {
-
-  final _nameController = BehaviorSubject<String>();
-
-  Stream<String> get nameStream   => _nameController.stream.transform( validateName );
-
-  Function(String) get changeName => _nameController.sink.add;
-  String get name => _nameController.value;
-
-  dispose() {
-    _nameController?.close();
-  }
-}

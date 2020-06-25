@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:locally/src/blocs/provider.dart';
-import 'package:locally/src/pages/inicio_page.dart';
+import 'package:locally/src/pages/home_page.dart';
 
 import 'package:locally/src/providers/users_provider.dart';
 import 'package:locally/src/utils/buttons_log.dart';
@@ -134,7 +134,7 @@ Future _login(LoginBloc bloc, BuildContext context) async{
 
    if ( info["ok"] ) {
    
-   Navigator.push(context, MaterialPageRoute(builder: (context) => Inicio()));
+   Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
 
    }else{
      showAlert(context, "Mail o contraseña incorrectos");
