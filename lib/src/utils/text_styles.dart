@@ -94,3 +94,24 @@ TextStyle alertDialog = TextStyle(
   fontStyle: FontStyle.normal,
   fontSize: 25.0,
 );
+
+TextStyle detailsTextStyle() {
+  return TextStyle(
+      color: Colors.grey[600],
+      fontWeight: FontWeight.w500,
+      fontFamily: "SFProText",
+      fontStyle: FontStyle.normal,
+      fontSize: 14.0);
+}
+
+TextStyle placesTitle() {
+  return TextStyle(
+      color: Colors.black,
+      fontWeight: FontWeight.w600,
+      fontFamily: "SFProText",
+      fontStyle: FontStyle.normal,
+      fontSize: 18.0);
+}
+
+TextStyle listSubtitleStyle() =>
+    TextStyle(fontSize: 18, fontWeight: FontWeight.w600);

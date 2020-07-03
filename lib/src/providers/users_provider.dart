@@ -63,12 +63,11 @@ class UsersProvider {
       //Grabamos las preferencias en el dispositivo
       _prefs.token = decodeResp["idToken"];
 
-       //Salvar el token en el storage     
+      //Salvar el token en el storage     
       return{ "ok": true, "token":decodeResp["idToken"]};
 
      }else{
         return{ "ok": false, "mensaje":decodeResp["error"]["message"] };
      }
-  }
-      
+  }     
 }

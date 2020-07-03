@@ -2,9 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:locally/src/blocs/provider.dart';
-import 'package:locally/src/pages/first_page.dart';
-import 'package:locally/src/pages/home_page.dart';
-import 'package:locally/src/routes/routes.dart';
+import 'package:locally/src/pages/menu/home_page.dart';
+import 'package:locally/src/pages/main_page.dart';
+import 'package:locally/src/pages/sign_in_pages/first_page.dart';
+import 'package:locally/src/data/managers/routes.dart';
 import 'package:locally/src/users_preference/preferences_users.dart';
 
 void main() async {
@@ -40,7 +41,7 @@ class _MyAppState extends State<MyApp> {
       child:MaterialApp(
        debugShowCheckedModeBanner: false,
        title: 'Material App',
-       home: prefs.token == null ? LoginPage() : HomePage(),
+       home: prefs.token == null ? LoginPage() : MainPage(),
       // initialRoute: "/",
        onGenerateRoute: ( settings ) {
          if (routes.containsKey(settings.name)){

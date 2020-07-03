@@ -31,6 +31,11 @@ dependencies:
   firebase_auth: ^0.16.1
   google_sign_in: ^4.5.1
   flutter_facebook_login: ^3.0.0
+  curved_navigation_bar: ^0.3.3
+  fluttericon: ^1.0.7
+  flutter_clean_calendar: ^1.0.2+1
+  auto_size_text: ^2.1.0
+  flutter_swiper: ^1.1.6
 
 dev_dependencies:
   flutter_test:
@@ -65,7 +70,9 @@ flutter:
     - assets/images/photographer-colour.png
     - assets/images/calendarColour.png
     - assets/images/ticket-colour.png
-  #  - images/a_dot_ham.jpeg
+    - assets/images/combined_shape.png
+    - assets/images/loading.gif
+    - assets/images/no-image.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -78,17 +85,17 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  #fonts:
+    #- family: SF
+     # fonts:
+      #  - asset: assets/fonts/sf_regular.otf
+       # - asset: assets/fonts/sf_regular_italic.otf
+       #   style: italic
+       # - asset: assets/fonts/sf_bold.otf
+       #   weight: 700
+       # - asset: assets/fonts/sf_bold_italic.otf
+        #  style: italic
+         # weight: 700      
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
